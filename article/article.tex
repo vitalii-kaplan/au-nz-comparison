@@ -64,18 +64,11 @@ These contributions define both the starting point and the boundary of this stud
 
 \subsection{Sources and study populations}
 
-The study uses the Australian and New Zealand source-level tables distributed in the Country-to-Visa dataset \cite{Kaplan2026CountryToVisaDataset}, with construction and source limitations documented in the accompanying data paper \cite{Kaplan2026CrossNationalDataPaper}. The Zenodo archive and data paper were verified against their published checksums. The Australian decision-rate table, four annual New Zealand CSV files, and the metadata needed to interpret them were selectively extracted and preserved unchanged. File identities, snapshot information, checksums, and extraction commands are recorded in the repository.
+The study uses the Australian and New Zealand source-level tables distributed in the Country-to-Visa dataset \cite{Kaplan2026CountryToVisaDataset}, with construction and source limitations documented in the accompanying data paper \cite{Kaplan2026CrossNationalDataPaper}. The Zenodo archive and data paper were verified against their published checksums. The Australian decision-rate table, four annual New Zealand CSV files, and the metadata needed to interpret them were selectively extracted and preserved unchanged. The public repository records file identities, snapshot information, checksums, extraction commands, and intended local destinations in \path{data/README.md} \cite{Kaplan2026AUNZComparisonRepository}.
 
 The New Zealand input comprises four Immigration New Zealand tables for calendar years 2022--2025. Each non-aggregate row reports offshore or overseas student visa decisions for one published applicant origin in one year. The 2022--2024 coverage includes Fee Paying Student, Pathway Student, English Language Studies Student, MFAT-funded New Zealand Scholarship Student, and Exchange Student visas. The 2025 description also identifies Foreign Government Supported Student visas \cite{INZStudentVisaDecisions2022,INZStudentVisaDecisions2023,INZStudentVisaDecisions2024,INZStudentVisaDecisions2025}. The 2025 source snapshot is dated 16 February 2026. These records are aggregate statistics rather than individual applications.
 
-The four local source tables are:
-
-\begin{itemize}
-  \item student\_visa\_decisions\_2022.csv;
-  \item student\_visa\_decisions\_2023.csv;
-  \item student\_visa\_decisions\_2024.csv; and
-  \item student\_visa\_decisions\_2025.csv.
-\end{itemize}
+The four local source tables are the annual 2022--2025 releases. Their exact filenames, checksums, selective extraction commands, and repository-relative destinations are specified in \path{data/README.md} \cite{Kaplan2026AUNZComparisonRepository}.
 
 The 2022 release reports origin, approvals, declines, and a decline rate. The later releases additionally report application volume and approval rate and contain a final Total row. That row is retained for audit but excluded from origin-level aggregation. Table~\ref{tab:nz-source-tables} summarises the inspected files.
 
@@ -96,7 +89,7 @@ Year & Source label & Origin rows & Additional fields after 2022 \\
 \end{tabular}
 \end{table}
 
-The Australian input is the decision-based student visa grant-rate table from the same dataset. It contains aggregate cells across time, applicant, provider, and demographic dimensions. We retain primary applicants outside Australia in the Higher Education Sector. The separately published Postgraduate Research Sector is outside the selected scope. The outcome fields are grants, refusals, their total, and the resulting grant rate. They describe decisions rather than lodgements, and every inspected source row satisfies grants plus refusals equals total. The artifact metadata identifies the contents as the 30 April 2026 snapshot, although the preserved upstream filename ends in 2026-02-28.
+The Australian input is the decision-based student visa grant-rate table from the same dataset. It contains aggregate cells across time, applicant, provider, and demographic dimensions. We retain primary applicants outside Australia in the Higher Education Sector. The separately published Postgraduate Research Sector is outside the selected scope. The outcome fields are grants, refusals, their total, and the resulting grant rate. They describe decisions rather than lodgements, and every inspected source row satisfies grants plus refusals equals total. The artifact metadata identifies the contents as the 30 April 2026 snapshot, although the preserved upstream filename ends in 2026-02-28. Its filename, checksum, extraction command, and repository-relative destination are recorded in \path{data/README.md} \cite{Kaplan2026AUNZComparisonRepository}.
 
 Australian periods are published by financial year and month. Months from July through December are assigned to the financial-year starting year, while January through June are assigned to the following year. Calendar years 2022--2025 each contain all 12 months drawn from two adjacent financial years. After the population filters are applied, grants and refusals are aggregated by calendar year and published citizenship label. Table~\ref{tab:au-prepared-tables} reports the source-label coverage before country-name harmonisation.
 
@@ -149,7 +142,7 @@ The pooled and annual normalized tables were validated before comparison tables 
 
 Four analysis-ready tables were then constructed. The pooled long table contains one row for each represented destination--country pair. It preserves the full coverage of each destination and supports the questions about scale, distributions, applicant-origin composition, and destination-level modelling. It also avoids treating a country absent from one source as if it had zero decisions. The pooled matched table contains one row for each country represented in both destinations, with separate AU and NZ counts and rates and the AU-minus-NZ rate difference. This table supports the like-for-like questions about paired differences, cross-destination concordance, and country-specific effects.
 
-Countries observed in only one destination remain available for destination-specific summaries but are excluded from paired comparisons. Rows with fewer than 20 or 50 decisions are retained and flagged so that later analyses can test whether conclusions depend on sparse observations. Canonical comparison tables are stored under \path{data/prepared/comparison/}. Validation records and run manifests are stored separately under \path{data/results/validation/} and \path{data/results/manifests/}.
+Countries observed in only one destination remain available for destination-specific summaries but are excluded from paired comparisons. Rows with fewer than 20 or 50 decisions are retained and flagged so that later analyses can test whether conclusions depend on sparse observations. The public repository documents the canonical comparison tables in \path{data/prepared/comparison/README.md} and provides validation and run manifests under \path{data/results/manifests/} \cite{Kaplan2026AUNZComparisonRepository}.
 
 \subsection{Missingness and Comparability Gate}
 
@@ -375,36 +368,6 @@ This study compares student visa approval rates in Australia and New Zealand. It
 This finding complements earlier New Zealand evidence that approval-rate variation within one destination is associated with regional, economic, development, and health characteristics of applicant origins \cite{Kaplan2026NZVisaApproval}. Together, the studies show that approval rates are neither simple attributes of origin countries nor context-free properties of destination countries. The same destination produces different rates across origins, while the same origin produces different rates across destinations. Explanation therefore requires the origin--destination pair: the interaction between an origin-specific applicant population and the way a destination's immigration system operates for that population.
 
 This pair-based perspective directs further research towards visa-category design, evidentiary requirements, policy priorities, institutional settings, applicant selection, processing practices, and changes in migration or international-education strategy. The present aggregate data do not distinguish among these mechanisms or demonstrate that any named policy caused a particular difference. The next study should therefore examine pair-specific variation more directly, including the distribution of decision volumes across origins, alternative weighting of national summaries, changes across years, and a country-and-year fixed-effect binomial model of whether the adjusted destination association is stable over time.
-
-\section{Appendices or Supplementary Material}
-
-\subsection{Repository Structure}
-
-% To be written if needed.
-
-\subsection{Student Visa Application Preparation}
-
-% To be written if needed.
-
-\subsection{Countries Excluded Before Regression}
-
-% To be written if needed.
-
-\subsection{Full Correlation Table}
-
-% To be written if needed.
-
-\subsection{Coefficient Stability Summary}
-
-% To be written if needed.
-
-\subsection{Relative Residual Tables}
-
-% To be written if needed.
-
-\subsection{Prediction Table}
-
-% To be written if needed.
 
 \bibliographystyle{splncs04}
 \bibliography{bibliography}

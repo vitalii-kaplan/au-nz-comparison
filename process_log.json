@@ -381,6 +381,56 @@
         "README.md",
         "process_log.json"
       ]
+    },
+    {
+      "id": "018",
+      "date": "2026-10-27",
+      "phase": "manuscript_public_repository_citation",
+      "status": "empirically_verified",
+      "summary": "Added a formal citation to the public GitHub repository at every reader-visible manuscript passage that names repository files or directories.",
+      "changes": [
+        "Added the Kaplan2026AUNZComparisonRepository bibliographic record with the public GitHub URL and access date.",
+        "Replaced the bare New Zealand input filenames with a reference to the public extraction manifest at data/README.md.",
+        "Linked the Australian source filename and extraction details to data/README.md.",
+        "Replaced references to generated or ignored data directories with the public comparison-table documentation and result-manifest paths.",
+        "Updated article/README.md to record that the repository citation requirement is implemented and must be rechecked for each release."
+      ],
+      "verification": [
+        "Confirmed that all five reader-visible repository-relative path occurrences resolve locally and are accompanied by the repository citation.",
+        "Confirmed HTTP 200 responses for the public repository, data/README.md, data/prepared/comparison/README.md, and data/results/manifests/ on the public main branch.",
+        "Built the 31-page manuscript successfully with the repository reference rendered as bibliography entry 20.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, or overfull boxes in the final LaTeX log."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/bibliography.bib",
+        "article/article.pdf",
+        "article/README.md",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "019",
+      "date": "2026-10-27",
+      "phase": "remove_empty_supplementary_section",
+      "status": "empirically_verified",
+      "summary": "Removed the unused empty Appendices or Supplementary Material section and its seven placeholder subsections from the manuscript.",
+      "changes": [
+        "Deleted the empty Section 10 headings and placeholder comments from article/article.tex.",
+        "Removed the stale placeholder statement from article/README.md.",
+        "Left the substantive manuscript sections, results, tables, figures, and bibliography unchanged."
+      ],
+      "verification": [
+        "Confirmed that the removed section had no labels or references elsewhere in the manuscript.",
+        "Rebuilt the manuscript successfully as a 30-page PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, or overfull boxes in the final LaTeX log."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "article/README.md",
+        "process_log.json"
+      ]
     }
   ]
 }

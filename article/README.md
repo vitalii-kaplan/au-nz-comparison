@@ -81,8 +81,8 @@ Before the manuscript is treated as publication-ready:
 - add the final repository reference to the appropriate data or code availability statement if required by the venue; and
 - verify that every path cited in the manuscript exists and is accessible in the public version.
 
-The final publication check must fail until the public repository reference has been added and the cited paths have been tested against the public version.
+The manuscript cites the public repository wherever it gives a repository-relative documentation or manifest path. The cited paths must be retested against the public version after each release and before publication.
 
 ## Current status
 
-The manuscript is implemented and compiles independently as `article.pdf`. Its Abstract, Introduction, Literature Review, Discussion, Limitations, and Conclusion have been revised against the verified evidence and current scope. Statistical foundations and their references remain in Methods and `Methods-citations.md` rather than being repeated in the Literature Review. The supplementary subsections remain placeholders. Further manuscript revisions require separate authorization and supporting evidence.
+The manuscript is implemented and compiles independently as `article.pdf`. Its Abstract, Introduction, Literature Review, Discussion, Limitations, and Conclusion have been revised against the verified evidence and current scope. Statistical foundations and their references remain in Methods and `Methods-citations.md` rather than being repeated in the Literature Review. Further manuscript revisions require separate authorization and supporting evidence.
