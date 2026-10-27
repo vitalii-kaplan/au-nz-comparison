@@ -1,0 +1,66 @@
+{
+  "module": "src.analysis_05_concordance",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:29+00:00",
+  "configuration": {
+    "confidence_level": 0.95,
+    "bootstrap_seed": 20260927,
+    "bootstrap_replicates": 10000
+  },
+  "inputs": [
+    {
+      "path": "data/prepared/comparison/matched_country_2022-2025.csv",
+      "sha256": "14fab02d2e3f97169de9beb2ef521e668d2b68ea8f8755ff4950170d2e134faf"
+    },
+    {
+      "path": "data/results/validation/data_validation_checks.csv",
+      "sha256": "ac4828d50a0d3deace4b7602a51247a725ffc3875f9e8a5c1ec00a7a2c382768"
+    },
+    {
+      "path": "src/analysis_config.json",
+      "sha256": "4957d332a4e21c0e131efdeb95eecd4c56f49442421074d4cdb340c4c4ecb524"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "concordance",
+      "path": "data/results/concordance/approval_rate_concordance.csv",
+      "sha256": "9e58efd0c412f6f89abb68324e58b79abef19823bf48485ca4622106e02bd9bf"
+    },
+    {
+      "name": "scatter_points",
+      "path": "data/results/concordance/approval_rate_scatter_points.csv",
+      "sha256": "3b6821184bd5b604c9d1d4fb384f3c1f589b68a77393ea4c7e675674bca9a872"
+    },
+    {
+      "name": "diagnostics",
+      "path": "data/results/concordance/concordance_diagnostics.csv",
+      "sha256": "85c1c7b43cdc3e517b0262dd8f075605d226241c2d283043f727724f69817fae"
+    }
+  ],
+  "results": [
+    {
+      "method": "Pearson",
+      "coefficient": 0.6287649366839333,
+      "n": 173,
+      "p_value": 2.001899956068773e-20,
+      "ci_lower": 0.5292109667542126,
+      "ci_upper": 0.7112422124201516,
+      "confidence_level": 0.95,
+      "ci_method": "Fisher z transformation",
+      "p_value_method": "t distribution with n-2 degrees of freedom"
+    },
+    {
+      "method": "Spearman",
+      "coefficient": 0.4715096098236919,
+      "n": 173,
+      "p_value": 5.839187393017889e-11,
+      "ci_lower": 0.3203439397105973,
+      "ci_upper": 0.6091361881060733,
+      "confidence_level": 0.95,
+      "ci_method": "percentile bootstrap (10000 replicates; seed 20260927)",
+      "p_value_method": "t approximation applied to rank correlation"
+    }
+  ],
+  "interpretation_warning": "Correlation measures association, not agreement."
+}

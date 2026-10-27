@@ -1,0 +1,82 @@
+{
+  "module": "src.analysis_12_reproducibility",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:35+00:00",
+  "inputs": [
+    {
+      "path": "data/results/manifests/01_analysis_contract.json",
+      "sha256": "29e18c7c252d6758af546c1827b8900bd5e724c2ec7588c696d767e462062c85"
+    },
+    {
+      "path": "data/results/manifests/02_data_validation_and_tables.json",
+      "sha256": "ed21542ce12cafde5292ef34b329119407a2f79ebeeed181cc7de409cbcde8fe"
+    },
+    {
+      "path": "data/results/manifests/11_comparability.json",
+      "sha256": "554eeb8cd1d59af2a0e7bdc933961c6a1dc02db67d1a518fd95dd9373dbb7445"
+    },
+    {
+      "path": "data/results/manifests/03_descriptive.json",
+      "sha256": "a132a63efaaca5d30af04d72727dc56e97c7ec1de7f851a17e61546a2b2c2ec8"
+    },
+    {
+      "path": "data/results/manifests/04_matched_comparison.json",
+      "sha256": "ecae14c248343232092cb85c2c34947d7f18ed77a7e7b60ad2664bbd3fd3b750"
+    },
+    {
+      "path": "data/results/manifests/05_concordance.json",
+      "sha256": "68c58dc081d3d61c0b179592a10517dfd6b633bf8bfa8f0d6decab9752911c37"
+    },
+    {
+      "path": "data/results/manifests/06_country_differences.json",
+      "sha256": "a13511e575125da1b0866e8dd69f34a96ff47dcc3e09d988a60553f27476aba7"
+    },
+    {
+      "path": "data/results/manifests/07_binomial_regression.json",
+      "sha256": "dc3f1b842daa2d57a21f0dd06342f1e298d8a212fd6289c34b3b4d6c643ed313"
+    },
+    {
+      "path": "data/results/manifests/08_origin_composition.json",
+      "sha256": "a96ebfdbd0e625653be0431a3aa4c71e816e6e54169bbc2f933e44fe4c0372ea"
+    },
+    {
+      "path": "data/results/manifests/09_temporal.json",
+      "sha256": "b9c7fefc186511192465108d0f2d4fdb2350c2aa36c8667e399fbde344e4f371"
+    },
+    {
+      "path": "data/results/manifests/10_sensitivity.json",
+      "sha256": "ea7d89617cdccc03f0ab9a3c68fda174d999f98be3b726a7bfd783cee4a9a2a6"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "artifact_manifest",
+      "path": "data/results/manifests/artifact_manifest.csv",
+      "sha256": "3deef7d9c726c1af6d7fe656b868be37d65c1d64c51cfbec8e3766533edfa406",
+      "rows": 67
+    },
+    {
+      "name": "software_versions",
+      "path": "data/results/manifests/software_versions.csv",
+      "sha256": "5eed5664b9a1648edc675db00ed2e5508718f74e788c0dcbae03c96acb5c62ad",
+      "rows": 5
+    },
+    {
+      "name": "pipeline_run",
+      "path": "data/results/manifests/pipeline_run.json",
+      "sha256": "95e9a5e099bf4808428765e2b610904f1597e087306c057b3c86cd7162cc8d80",
+      "rows": ""
+    },
+    {
+      "name": "reproducibility_issues",
+      "path": "data/results/manifests/reproducibility_issues.csv",
+      "sha256": "8f1bc060f8659fd554ff07bc4e762147b101fafcaf079e9c0ada859461759872",
+      "rows": 0
+    }
+  ],
+  "summary": {
+    "source_manifests": 11,
+    "registered_artifacts": 67,
+    "reproducibility_issues": 0
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schema.json",
+  "title": "Unified Australia-New Zealand student visa decision table",
+  "description": "Schema for one origin-country row for either a single calendar year or an explicitly named combined period. The same five-column structure is used for New Zealand and Australia. The legacy field named Total applications represents completed decisions, not official application or lodgement volume. Destination and period are identified by the prepared-data directory and filename.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "Country",
+      "Number approved",
+      "Number declined",
+      "Total applications",
+      "Approval rate"
+    ],
+    "properties": {
+      "Country": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Applicant citizenship, country, territory, or special administrative region label. National prepared tables retain source labels; files ending in -m49 use exact English Country or Area names from the downloaded UN M49 reference, except for the reviewed non-M49 labels Taiwan and Kosovo, which are retained unchanged."
+      },
+      "Number approved": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Sum of New Zealand approvals or Australian grants across 2022-2025."
+      },
+      "Number declined": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Sum of New Zealand declines or Australian refusals across 2022-2025."
+      },
+      "Total applications": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Legacy compatibility name for completed decisions, calculated as Number approved plus Number declined. It is not an official application or lodgement total."
+      },
+      "Approval rate": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1,
+        "description": "Decision approval or grant rate calculated as Number approved divided by Total applications."
+      }
+    }
+  },
+  "x-table": {
+    "format": "csv",
+    "period": "A single calendar year or combined calendar years 2022-2025, identified by filename",
+    "period_basis": "calendar year",
+    "destination_location": "Prepared-data directory and filename",
+    "normalized_filename_suffix": "-m49",
+    "column_order": [
+      "Country",
+      "Number approved",
+      "Number declined",
+      "Total applications",
+      "Approval rate"
+    ],
+    "primary_key": [
+      "Country"
+    ],
+    "sort_order": [
+      "Country"
+    ],
+    "derived_fields": {
+      "Total applications": "Number approved + Number declined",
+      "Approval rate": "Number approved / Total applications"
+    },
+    "source_mapping": {
+      "New Zealand": {
+        "Number approved": "number_approved",
+        "Number declined": "number_declined"
+      },
+      "Australia": {
+        "Number approved": "grant_total",
+        "Number declined": "refused_total"
+      }
+    },
+    "excluded_source_rows": [
+      "Total"
+    ]
+  }
+}

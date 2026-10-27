@@ -1,0 +1,56 @@
+{
+  "module": "src.analysis_03_descriptive",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:27+00:00",
+  "inputs": [
+    {
+      "path": "data/prepared/comparison/destination_country_2022-2025.csv",
+      "sha256": "cb3fd754049b7631e9893861d1badcc89786c9c4c2613aece3470ab6e7a1e5d9"
+    },
+    {
+      "path": "data/results/validation/data_validation_checks.csv",
+      "sha256": "ac4828d50a0d3deace4b7602a51247a725ffc3875f9e8a5c1ec00a7a2c382768"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "dataset_summary",
+      "path": "data/results/descriptive/dataset_summary_by_destination.csv",
+      "sha256": "d9c084918eee9ab55ddd81b2580d6a2e757140c33227f3bb33ec5e73bece546d"
+    },
+    {
+      "name": "distribution_statistics",
+      "path": "data/results/descriptive/country_level_distribution_statistics.csv",
+      "sha256": "aeb58601b3bd430024f777747f0d760a456f9afb3a494258115999b49fba0da7"
+    },
+    {
+      "name": "approval_rate_ecdf",
+      "path": "data/results/descriptive/approval_rate_ecdf_points.csv",
+      "sha256": "15cd33e00f032e49dca93c7feea83a1dcb6a356581d7ec88d4ee843b6f6ac2a1"
+    },
+    {
+      "name": "decision_volume_ecdf",
+      "path": "data/results/descriptive/decision_volume_ecdf_points.csv",
+      "sha256": "61c0363a5e79f4601eeb89a501245183a99be178b467baea48925b3a66a864f4"
+    }
+  ],
+  "summary": {
+    "AU": {
+      "represented_countries": 192,
+      "decision_total": 737424,
+      "aggregate_approval_rate": 0.8666357482262579
+    },
+    "NZ": {
+      "represented_countries": 179,
+      "decision_total": 148746,
+      "aggregate_approval_rate": 0.8132319524558643
+    }
+  },
+  "methods": {
+    "aggregate_rate": "sum(approved) / sum(decisions)",
+    "country_distribution_weighting": "one represented country per observation",
+    "sample_sd_denominator": "n - 1",
+    "quantile_method": "Hyndman-Fan type 7",
+    "decision_volume_plot_transform": "log10 for positive decision totals only"
+  }
+}

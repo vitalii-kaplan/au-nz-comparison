@@ -1,0 +1,100 @@
+{
+  "module": "src.analysis_04_matched_comparison",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:27+00:00",
+  "configuration": {
+    "difference_direction": "AU - NZ",
+    "confidence_level": 0.95,
+    "bootstrap_seed": 20260927,
+    "bootstrap_replicates": 10000,
+    "zero_policy": "discard zero differences for Wilcoxon only"
+  },
+  "inputs": [
+    {
+      "path": "data/prepared/comparison/matched_country_2022-2025.csv",
+      "sha256": "14fab02d2e3f97169de9beb2ef521e668d2b68ea8f8755ff4950170d2e134faf"
+    },
+    {
+      "path": "data/results/validation/data_validation_checks.csv",
+      "sha256": "ac4828d50a0d3deace4b7602a51247a725ffc3875f9e8a5c1ec00a7a2c382768"
+    },
+    {
+      "path": "src/analysis_config.json",
+      "sha256": "4957d332a4e21c0e131efdeb95eecd4c56f49442421074d4cdb340c4c4ecb524"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "matched_differences",
+      "path": "data/results/paired/matched_country_differences.csv",
+      "sha256": "0a92284294026711f8184ec2e3c118e56edfafbfa0304c5deae41d14b3e374eb"
+    },
+    {
+      "name": "difference_summary",
+      "path": "data/results/paired/matched_difference_summary.csv",
+      "sha256": "76338c21b5860494b969c0f84c35385fe1c8d58c66b40fccd5fe1ce01a2f986e"
+    },
+    {
+      "name": "test_results",
+      "path": "data/results/paired/paired_test_results.csv",
+      "sha256": "28e0827917fe9eb72f74b1d896ec3be8a65783fac0523a3be1eae93fbc66f4d4"
+    },
+    {
+      "name": "bootstrap_distribution",
+      "path": "data/results/paired/median_bootstrap_distribution.csv",
+      "sha256": "6be6d6fae15754418209dbd397f4b656173ec7c38608d0ccc66b9d45e873d01b"
+    }
+  ],
+  "summary": {
+    "period": "2022-2025",
+    "n_pairs": 173,
+    "n_nonzero": 154,
+    "n_positive": 122,
+    "n_negative": 32,
+    "n_zero": 19,
+    "mean_difference": 0.16321229112564284,
+    "mean_ci_lower": 0.12712717106753077,
+    "mean_ci_upper": 0.1992974111837549,
+    "median_difference": 0.09443352590088239,
+    "median_bootstrap_ci_lower": 0.043333333333333335,
+    "median_bootstrap_ci_upper": 0.14529833769413403,
+    "sample_sd": 0.24045653401362319,
+    "q1": 0.0,
+    "q3": 0.2595820895522388,
+    "iqr": 0.2595820895522388,
+    "minimum": -0.25,
+    "maximum": 1.0,
+    "confidence_level": 0.95,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260927,
+    "quantile_method": "Hyndman-Fan type 7"
+  },
+  "tests": [
+    {
+      "test_name": "Wilcoxon signed-rank",
+      "role": "primary",
+      "alternative": "two-sided",
+      "n": 154,
+      "statistic": 1419.5,
+      "positive_rank_sum": 10515.5,
+      "negative_rank_sum": 1419.5,
+      "degrees_of_freedom": "",
+      "p_value": 2.343508846996388e-16,
+      "p_value_method": "normal approximation with tie adjustment and continuity correction",
+      "zero_policy": "discard zero differences (Wilcox method)"
+    },
+    {
+      "test_name": "Paired t-test",
+      "role": "sensitivity",
+      "alternative": "two-sided",
+      "n": 173,
+      "statistic": 8.927694695423225,
+      "positive_rank_sum": "",
+      "negative_rank_sum": "",
+      "degrees_of_freedom": 172,
+      "p_value": 6.411439610056474e-16,
+      "p_value_method": "Student t distribution",
+      "zero_policy": "retain zero differences"
+    }
+  ]
+}

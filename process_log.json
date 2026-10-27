@@ -1,0 +1,365 @@
+{
+  "schema_version": 2,
+  "project": "Australia-New Zealand Student Visa Decisions",
+  "created_at": "2026-09-26T11:29:00Z",
+  "public_record_created_at": "2026-10-27",
+  "purpose": "Public, append-only record of material data, analysis, manuscript, and reproducibility milestones for the journal article.",
+  "maintenance": {
+    "ordering": "Entries are chronological and use stable sequential IDs.",
+    "update_rule": "Append a new entry after a material research, data, analysis, manuscript, or project-configuration step. If a later decision changes the project, append a superseding entry rather than rewriting history.",
+    "evidence_rule": "Distinguish planned, implemented, statically validated, runtime validated, and empirically verified work. Record artifact paths and checks where available.",
+    "scope": "This public record consolidates the milestones needed to understand and reproduce the current single-article repository."
+  },
+  "entries": [
+    {
+      "id": "001",
+      "date": "2026-09-26",
+      "phase": "source_acquisition",
+      "status": "empirically_verified",
+      "summary": "Acquired the published cross-national data archive and associated data paper from Zenodo and verified both downloads against the published checksums.",
+      "evidence": {
+        "data_paper_doi": "10.5281/zenodo.21453632",
+        "dataset_doi": "10.5281/zenodo.21446641",
+        "data_paper_md5": "bba6ab4c9096904d5ff664d2c7ec89ac",
+        "dataset_archive_md5": "f82c8b153099fd1a19cdf4fb20f58ab6"
+      },
+      "verification": [
+        "Compared both downloaded MD5 values with the Zenodo record manifests.",
+        "Inspected the archive member list before selective extraction."
+      ],
+      "artifacts": [
+        "data/original/zenodo/Reproducible-Cross-National-Dataset.pdf",
+        "data/original/zenodo/data.zip"
+      ]
+    },
+    {
+      "id": "002",
+      "date": "2026-09-26",
+      "phase": "selective_source_extraction",
+      "status": "empirically_verified",
+      "summary": "Extracted the Australian decision table, four annual New Zealand decision tables, and normalization metadata needed for the comparison without unpacking unrelated large derived files.",
+      "verification": [
+        "Confirmed that the extracted Australian CSV and all four New Zealand CSVs exactly match their archived source files.",
+        "Validated the extracted country schema as JSON."
+      ],
+      "artifacts": [
+        "data/original/australia/student_visa_grant_rates_2005_2026-02-28.csv",
+        "data/original/new-zealand/student_visa_decisions_2022.csv",
+        "data/original/new-zealand/student_visa_decisions_2023.csv",
+        "data/original/new-zealand/student_visa_decisions_2024.csv",
+        "data/original/new-zealand/student_visa_decisions_2025.csv",
+        "data/original/zenodo/artifact-metadata/country-schema.json",
+        "data/original/zenodo/artifact-metadata/country_aliases.csv"
+      ]
+    },
+    {
+      "id": "003",
+      "date": "2026-09-26",
+      "phase": "new_zealand_preparation",
+      "status": "empirically_verified",
+      "summary": "Implemented the deterministic New Zealand 2022-2025 preparation workflow and generated annual and pooled country-level decision tables.",
+      "changes": [
+        "Excluded published aggregate Total rows.",
+        "Aggregated approvals and declines by origin and derived decision totals, approval rates, and base-10 decision-count logarithms.",
+        "Preserved the distinction between completed decisions and official application volume."
+      ],
+      "verification": [
+        "Confirmed that all 179 pooled rows match the retained reference table on country labels and counts, with derived floating-point values equal within 1e-15.",
+        "Ran the preparation repeatedly and obtained identical output and audit hashes."
+      ],
+      "artifacts": [
+        "scripts/prepare_new_zealand.py",
+        "data/prepared/new-zealand/",
+        "data/support/new-zealand-reference-comparison.json"
+      ]
+    },
+    {
+      "id": "004",
+      "date": "2026-09-26",
+      "phase": "australia_preparation",
+      "status": "empirically_verified",
+      "summary": "Implemented the deterministic Australian preparation workflow for Higher Education Sector primary applicants outside Australia and generated calendar-year and pooled 2022-2025 decision tables.",
+      "changes": [
+        "Reconstructed calendar year from the financial-year and month fields.",
+        "Aggregated grants and refusals by citizenship after applying the documented population filters.",
+        "Calculated rates from aggregated counts rather than averaging source-row rates."
+      ],
+      "verification": [
+        "Confirmed all 2,046,442 source rows reconcile grants plus refusals to total decisions.",
+        "Confirmed annual and pooled aggregation conserves the selected source counts.",
+        "Ran the preparation repeatedly and obtained identical output and audit hashes."
+      ],
+      "artifacts": [
+        "scripts/prepare_australia.py",
+        "data/prepared/australia/",
+        "data/support/australia-preparation-audit.json"
+      ]
+    },
+    {
+      "id": "005",
+      "date": "2026-09-26",
+      "phase": "country_name_harmonization",
+      "status": "empirically_verified",
+      "summary": "Implemented annual country-name harmonization against the official UN M49 list before pooling the four years for each destination.",
+      "changes": [
+        "Applied reviewed destination-specific and generic aliases.",
+        "Retained Taiwan and Kosovo unchanged as reviewed non-M49 exceptions.",
+        "Excluded the Australian non-country labels Not Specified and Refugee.",
+        "Rebuilt the pooled tables only from normalized annual outputs."
+      ],
+      "verification": [
+        "Confirmed unique sorted country keys, count conservation, reproducible rates, and audited exclusions.",
+        "Confirmed identical outputs across repeated runs."
+      ],
+      "artifacts": [
+        "scripts/extract_un_m49.py",
+        "scripts/check_country_names.py",
+        "data/original/reference/un-m49.csv",
+        "data/reference/country_aliases.csv",
+        "data/support/country-name-harmonization.json"
+      ]
+    },
+    {
+      "id": "006",
+      "date": "2026-09-27",
+      "phase": "analysis_contract_and_comparison_tables",
+      "status": "empirically_verified",
+      "summary": "Implemented the machine-readable analysis contract and constructed validated pooled and country-year Australia-New Zealand comparison tables.",
+      "verification": [
+        "Checked schemas, uniqueness, formulas, population rules, matched-origin construction, and count reconciliation.",
+        "Added executable regression and unit tests for preparation and comparison-table construction."
+      ],
+      "artifacts": [
+        "src/analysis_01_define_contract.py",
+        "src/analysis_02_build_tables.py",
+        "src/analysis_config.json",
+        "data/prepared/comparison/",
+        "tests/"
+      ]
+    },
+    {
+      "id": "007",
+      "date": "2026-09-27",
+      "phase": "core_matched_origin_analyses",
+      "status": "empirically_verified",
+      "summary": "Implemented descriptive summaries, paired matched-origin comparisons, cross-destination concordance, and country-specific approval-rate comparisons.",
+      "methods": [
+        "Destination-specific and matched-origin descriptive summaries",
+        "Paired mean and median Australian-minus-New Zealand approval-rate differences",
+        "Pearson and Spearman concordance",
+        "Country-specific tests with multiplicity control and confidence intervals"
+      ],
+      "verification": [
+        "Ran the modules against the validated comparison tables.",
+        "Checked generated result JSON, CSV, and publication artifacts with matching tests."
+      ],
+      "artifacts": [
+        "src/analysis_03_descriptive.py",
+        "src/analysis_04_matched_comparison.py",
+        "src/analysis_05_concordance.py",
+        "src/analysis_06_country_differences.py",
+        "data/results/"
+      ]
+    },
+    {
+      "id": "008",
+      "date": "2026-09-28",
+      "phase": "comparability_and_missingness_gate",
+      "status": "empirically_verified",
+      "summary": "Implemented the comparability and missingness gate before analyses that depend on matched coverage or zero-filling assumptions.",
+      "verification": [
+        "Audited destination-only origins, matched origins, structural missingness, and zero cells.",
+        "Confirmed downstream population definitions use the validated gate outputs."
+      ],
+      "artifacts": [
+        "src/analysis_11_comparability.py",
+        "data/results/validation/comparability_decisions.csv",
+        "data/results/validation/missingness_classification.csv",
+        "tests/test_analysis_11_comparability.py"
+      ]
+    },
+    {
+      "id": "009",
+      "date": "2026-09-28",
+      "phase": "model_and_sensitivity_analyses",
+      "status": "empirically_verified",
+      "summary": "Implemented the pooled binomial model, diagnostics, influence checks, robust uncertainty, and decision-count threshold sensitivity analyses used by the article.",
+      "changes": [
+        "Estimated the common destination contrast while controlling for applicant origin.",
+        "Excluded outcome-invariant origins from the pooled model according to the analysis contract.",
+        "Evaluated robustness over the pre-specified minimum-decision thresholds."
+      ],
+      "verification": [
+        "Validated coefficients, standardized probabilities, diagnostics, influence measures, and sensitivity populations against executable tests.",
+        "Generated the model and sensitivity tables and figures directly from verified result artifacts."
+      ],
+      "artifacts": [
+        "src/analysis_07_binomial_regression.py",
+        "src/analysis_10_sensitivity.py",
+        "scripts/generate_article_model_outputs.py",
+        "scripts/generate_article_sensitivity_outputs.py",
+        "data/results/models/",
+        "data/results/robustness/"
+      ]
+    },
+    {
+      "id": "010",
+      "date": "2026-09-28",
+      "phase": "reproducibility_and_quality_controls",
+      "status": "empirically_verified",
+      "summary": "Implemented dependency-ordered pipeline execution, reproducibility manifests, minimum-output checks, interpretation boundaries, and final validation controls.",
+      "verification": [
+        "Verified hashes and provenance for registered result and publication artifacts.",
+        "Confirmed the final pipeline stages pass only after their required upstream outputs are present and valid."
+      ],
+      "artifacts": [
+        "src/analysis_12_reproducibility.py",
+        "src/analysis_13_validate_outputs.py",
+        "src/analysis_14_interpretation_checks.py",
+        "src/analysis_15_run_pipeline.py",
+        "data/results/manifests/"
+      ]
+    },
+    {
+      "id": "011",
+      "date": "2026-10-26",
+      "phase": "manuscript_evidence_reconciliation",
+      "status": "empirically_verified",
+      "summary": "Reconciled the manuscript with the implemented methods, verified results, diagnostics, robustness analyses, literature evidence, and aggregate-data interpretation boundaries.",
+      "changes": [
+        "Aligned the Introduction, Literature Review, Methods, Results, Discussion, Limitations, and Conclusion with the current study scope.",
+        "Maintained machine-readable and human-readable registries for the literature-review sources.",
+        "Kept causal and individual-level claims outside the evidence supported by the aggregate official records."
+      ],
+      "verification": [
+        "Checked numerical statements against generated artifacts and interpretation boundaries.",
+        "Compiled the manuscript with resolved citations and references and no overfull boxes.",
+        "Visually inspected the revised rendered sections."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/bibliography.bib",
+        "article/LR_sources.md",
+        "article/article.pdf",
+        "article/Methods-citations.md"
+      ]
+    },
+    {
+      "id": "012",
+      "date": "2026-10-27",
+      "phase": "single_article_repository_reconciliation",
+      "status": "empirically_verified",
+      "summary": "Reconciled paths, documentation, generators, tests, and validation contracts around article/ as the repository's only manuscript directory without editing the manuscript or bibliography.",
+      "verification": [
+        "Confirmed that repository documentation and code use the current article/ paths.",
+        "Confirmed all repository-relative Markdown links resolve.",
+        "Ran the complete research pipeline and test suite successfully.",
+        "Verified unchanged SHA-256 hashes for article/article.tex and article/bibliography.bib during the reconciliation."
+      ],
+      "artifacts": [
+        "README.md",
+        "article/README.md",
+        "scripts/README.md",
+        "src/README.md",
+        "tests/README.md"
+      ]
+    },
+    {
+      "id": "013",
+      "date": "2026-10-27",
+      "phase": "public_repository_preparation",
+      "status": "statically_validated",
+      "summary": "Prepared the repository for public GitHub use with reader-facing documentation, publication-focused scripts, and explicit separation of source code, generated data, raw downloads, and local working records.",
+      "verification": [
+        "Confirmed every repository-relative link in README.md resolves.",
+        "Audited the prospective public file set for caches, environments, raw downloads, generated data, and local working files.",
+        "Confirmed public text and PDF content describes only the current article."
+      ],
+      "artifacts": [
+        ".gitignore",
+        "README.md",
+        "data/README.md",
+        "scripts/README.md"
+      ]
+    },
+    {
+      "id": "014",
+      "date": "2026-10-27",
+      "phase": "end_to_end_article_reproduction",
+      "status": "empirically_verified",
+      "summary": "Implemented and verified a single command that reproduces the prepared data, analyses, publication outputs, tests, and compiled manuscript from the selectively extracted initial data.",
+      "changes": [
+        "Added scripts/reproduce_article.py as the public workflow entry point.",
+        "Integrated the six publication-output generators into the dependency-ordered pipeline.",
+        "Limited the public generators to the eight tables and nine figures imported by the manuscript."
+      ],
+      "verification": [
+        "Ran python3 scripts/reproduce_article.py --run-tests --build-pdf successfully.",
+        "Completed all preparation steps and all 20 pipeline stages.",
+        "Passed all 34 tests and built the 31-page article/article.pdf.",
+        "Verified all 17 manuscript inputs have generator provenance and verified manifest status.",
+        "Reran the documented --skip-preparation workflow successfully."
+      ],
+      "artifacts": [
+        "scripts/reproduce_article.py",
+        "src/analysis_15_run_pipeline.py",
+        "article/tables/",
+        "article/figures/",
+        "article/article.pdf",
+        "data/results/manifests/"
+      ]
+    },
+    {
+      "id": "015",
+      "date": "2026-10-27",
+      "phase": "public_process_log",
+      "status": "statically_validated",
+      "summary": "Added this consolidated process log to the public repository so readers can trace the material scientific and publication milestones alongside the reproducible artifacts.",
+      "changes": [
+        "Removed process_log.json from .gitignore.",
+        "Added process_log.json to the README repository map and provenance description.",
+        "Consolidated the current project's source, preparation, analysis, manuscript, validation, and publication milestones into a public append-only record.",
+        "Preserved detailed artifact paths and verification evidence needed to interpret the repository state."
+      ],
+      "verification": [
+        "Validated process_log.json as JSON.",
+        "Confirmed the public log contains no obsolete manuscript identifiers or retired project-structure references."
+      ],
+      "artifacts": [
+        ".gitignore",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "016",
+      "date": "2026-10-27",
+      "phase": "first_github_project_baseline",
+      "status": "empirically_verified",
+      "summary": "Prepared the first Git version of the complete research project for deployment to the configured GitHub repository.",
+      "changes": [
+        "Included the manuscript, publication artifacts, preparation scripts, statistical modules, tests, schemas, reviewed mappings, audits, manifests, and public process log in the project snapshot.",
+        "Kept local agent instructions, raw and selectively extracted source data, generated research tables, caches, environments, manuscript working notes, and LaTeX auxiliary files outside version control.",
+        "Added a Git attributes rule that preserves the downloaded official UN M49 webpage byte-for-byte and excludes its source formatting from whitespace checks.",
+        "Reconciled the README license statement with the MIT LICENSE already present in the repository.",
+        "Updated article/README.md to identify the configured public repository while retaining the remaining manuscript-publication checks."
+      ],
+      "verification": [
+        "Confirmed that origin points to https://github.com/vitalii-kaplan/au-nz-comparison and that its main branch is reachable at commit 01f14dc97767aa2f5392111b6bb748988070ec4e.",
+        "Ran python3 scripts/reproduce_article.py --skip-preparation --run-tests --build-pdf successfully.",
+        "Completed all 20 pipeline stages and passed all 34 tests.",
+        "Confirmed that article/article.pdf is up to date with the unchanged manuscript source.",
+        "Audited the prospective public files for oversized files, local paths, credentials, obsolete manuscript identifiers, and ignored working artifacts."
+      ],
+      "artifacts": [
+        "LICENSE",
+        ".gitattributes",
+        ".gitignore",
+        "README.md",
+        "article/README.md",
+        "process_log.json",
+        "scripts/reproduce_article.py",
+        "data/results/manifests/pipeline_run.json"
+      ]
+    }
+  ]
+}

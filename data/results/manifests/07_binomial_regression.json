@@ -1,0 +1,95 @@
+{
+  "module": "src.analysis_07_binomial_regression",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:29+00:00",
+  "configuration": {
+    "reference_destination": "NZ",
+    "comparison_destination": "AU",
+    "confidence_level": 0.95,
+    "pooled_covariance": "country-cluster-robust sandwich (CR1)",
+    "annual_covariance": "country-cluster-robust sandwich (CR1)",
+    "r_version": "Rscript (R) version 4.6.1 (2026-06-24)"
+  },
+  "inputs": [
+    {
+      "path": "src/analysis_config.json",
+      "sha256": "4957d332a4e21c0e131efdeb95eecd4c56f49442421074d4cdb340c4c4ecb524"
+    },
+    {
+      "path": "data/prepared/comparison/matched_country_2022-2025.csv",
+      "sha256": "14fab02d2e3f97169de9beb2ef521e668d2b68ea8f8755ff4950170d2e134faf"
+    },
+    {
+      "path": "data/prepared/comparison/matched_country_year.csv",
+      "sha256": "f9eaf132848f327fa85431684b463b4181c18da675cc32edfe10be98b758f6d8"
+    },
+    {
+      "path": "data/results/validation/data_validation_checks.csv",
+      "sha256": "ac4828d50a0d3deace4b7602a51247a725ffc3875f9e8a5c1ec00a7a2c382768"
+    },
+    {
+      "path": "data/results/validation/comparability_decisions.csv",
+      "sha256": "4198a30ef3bc36e8f4abce007751abe36f24813d470307fa6093dc84b309a9b7"
+    },
+    {
+      "path": "src/fit_binomial_models.R",
+      "sha256": "710dc1f3850328ddde13210cc2aa69deebbce042decddc0a574287f06f8b837a"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "coefficients",
+      "path": "data/results/models/binomial_model_coefficients.csv",
+      "sha256": "e90ca16189781e18d305a8a8260074b32b91fefebb6bca017cb07d22554a966e"
+    },
+    {
+      "name": "contrasts",
+      "path": "data/results/models/destination_probability_contrasts.csv",
+      "sha256": "d5e1c98271a1483354e1fa7311266c81651c3ea93562fa1e13c9c57ea70e6782"
+    },
+    {
+      "name": "fit",
+      "path": "data/results/models/model_fit_statistics.csv",
+      "sha256": "c6380da215d5460a43d99f8bce4c0149e69696bc8def19a9f9103069bb655556"
+    },
+    {
+      "name": "diagnostics",
+      "path": "data/results/models/model_diagnostics.csv",
+      "sha256": "f67c0dc434e212d3f73eeca04ea1c567f8173bb34bb7428548be1bab41859a67"
+    },
+    {
+      "name": "influence",
+      "path": "data/results/models/influential_observations.csv",
+      "sha256": "7c4fa8a2a8987e68a8763b9f549f3e75027d70dbe8de1bfa4195f371b5e114b1"
+    }
+  ],
+  "destination_terms": [
+    {
+      "model": "pooled_country_fixed_effects",
+      "term": "destinationAU",
+      "estimate": "0.942274052386301",
+      "standard_error": "0.190028387276983",
+      "ci_lower": "0.569825257283186",
+      "ci_upper": "1.31472284748942",
+      "p_value": "7.10043511399635e-07",
+      "odds_ratio": "2.56580957443706",
+      "odds_ratio_ci_lower": "1.76795808664057",
+      "odds_ratio_ci_upper": "3.72371880420675",
+      "covariance_method": "country-cluster-robust sandwich (CR1)"
+    },
+    {
+      "model": "country_year_fixed_effects",
+      "term": "destinationAU",
+      "estimate": "0.915551194200189",
+      "standard_error": "0.155377857758307",
+      "ci_lower": "0.61101618899892",
+      "ci_upper": "1.22008619940146",
+      "p_value": "3.80586327676212e-09",
+      "odds_ratio": "2.49815183929155",
+      "odds_ratio_ci_lower": "1.84230257549592",
+      "odds_ratio_ci_upper": "3.38747971976093",
+      "covariance_method": "country-cluster-robust sandwich (CR1)"
+    }
+  ],
+  "interpretation_warning": "Destination coefficients are conditional observational associations, not causal effects."
+}

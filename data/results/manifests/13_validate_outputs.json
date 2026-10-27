@@ -1,0 +1,34 @@
+{
+  "module": "src.analysis_13_validate_outputs",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:35+00:00",
+  "inputs": [
+    {
+      "path": "data/results/manifests/12_reproducibility.json",
+      "sha256": "9964ed384d54e2206372579c294b1590b442f4d036b5f461316119d9b4f99f41"
+    },
+    {
+      "path": "data/results/manifests/artifact_manifest.csv",
+      "sha256": "3deef7d9c726c1af6d7fe656b868be37d65c1d64c51cfbec8e3766533edfa406"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "checklist",
+      "path": "data/results/manifests/minimum_output_checklist.csv",
+      "sha256": "01c708a948eca52aa75b230d4b6d74c22c7db458acb01a3ca4ddc07604d5324b",
+      "rows": 19
+    },
+    {
+      "name": "result_registry",
+      "path": "data/results/manifests/result_table_registry.csv",
+      "sha256": "093c13e3e4e45f6c999431c2b57f867d1e33d02526bb0ed8f9a8fb7c22025beb",
+      "rows": 9
+    }
+  ],
+  "summary": {
+    "required_outputs_passed": 18,
+    "optional_outputs_skipped": 1,
+    "failures": 0
+  }
+}

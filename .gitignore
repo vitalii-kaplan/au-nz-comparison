@@ -1,0 +1,62 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local development environments and editor state.
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local AI-agent instructions and project history.
+AGENTS.md
+agents/
+.agents/
+.codex/
+
+# Manuscript working notes that are not publication artifacts.
+article/titles.txt
+
+# Downloaded Zenodo artifacts and selectively extracted immutable data.
+# Recreate these files using data/README.md.
+data/original/zenodo/data.zip
+data/original/zenodo/Reproducible-Cross-National-Dataset.pdf
+data/original/zenodo/record-*.json
+data/original/zenodo/artifact-metadata/
+data/original/australia/*.csv
+data/original/new-zealand/*.csv
+
+# Future generated research data and outputs.
+data/prepared/**/*.csv
+data/prepared/**/*.parquet
+data/results/**/*.csv
+data/results/**/*.parquet
+data/results/**/*.sqlite
+
+# LaTeX build artifacts.
+article/*.aux
+article/*.bbl
+article/*.bcf
+article/*.blg
+article/*.fdb_latexmk
+article/*.fls
+article/*.log
+article/*.out
+article/*.run.xml
+article/*.synctex.gz
+article/*.toc
+article/*.lof
+article/*.lot
+article/*.nav
+article/*.snm
+article/*.vrb

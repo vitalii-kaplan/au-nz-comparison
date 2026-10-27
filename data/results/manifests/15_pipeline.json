@@ -1,0 +1,54 @@
+{
+  "module": "src.analysis_15_run_pipeline",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:35+00:00",
+  "execution_order": [
+    "01",
+    "02",
+    "11",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "12",
+    "13",
+    "14"
+  ],
+  "inputs": [
+    {
+      "path": "data/results/validation/comparability_decisions.csv",
+      "sha256": "4198a30ef3bc36e8f4abce007751abe36f24813d470307fa6093dc84b309a9b7"
+    },
+    {
+      "path": "data/results/manifests/14_interpretation_checks.json",
+      "sha256": "1ae88da0cb8f6d20b10900b8416e4ce585ceedb9d6c250683e72703938197d40"
+    },
+    {
+      "path": "data/results/manifests/pipeline_run.json",
+      "sha256": "95e9a5e099bf4808428765e2b610904f1597e087306c057b3c86cd7162cc8d80"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "pipeline_stage_status",
+      "path": "data/results/manifests/pipeline_stage_status.csv",
+      "sha256": "8309cb14ef24fe45dd87feec7d106614c87bcdac52bebb557b4e0878e0cc61b7",
+      "rows": 20
+    }
+  ],
+  "summary": {
+    "stages_passed": 20,
+    "stages_skipped": 0,
+    "stages_failed": 0
+  }
+}

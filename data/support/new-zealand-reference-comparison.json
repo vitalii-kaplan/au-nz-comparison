@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "schema_file": "data/schema.json",
+  "period": "2022-2025",
+  "prepared_rows": 179,
+  "source_audit": [
+    {
+      "year": 2022,
+      "source_file": "data/original/new-zealand/student_visa_decisions_2022.csv",
+      "detail_rows": 149,
+      "detail_approvals": 16311,
+      "detail_declines": 1702,
+      "detail_decisions": 18013,
+      "prepared_rows": 149,
+      "excluded_total_rows": 0,
+      "published_total": null
+    },
+    {
+      "year": 2023,
+      "source_file": "data/original/new-zealand/student_visa_decisions_2023.csv",
+      "detail_rows": 157,
+      "detail_approvals": 32749,
+      "detail_declines": 7711,
+      "detail_decisions": 40460,
+      "prepared_rows": 157,
+      "excluded_total_rows": 1,
+      "published_total": {
+        "approved": 32706,
+        "declined": 7689,
+        "decisions": 40395
+      }
+    },
+    {
+      "year": 2024,
+      "source_file": "data/original/new-zealand/student_visa_decisions_2024.csv",
+      "detail_rows": 151,
+      "detail_approvals": 36892,
+      "detail_declines": 11881,
+      "detail_decisions": 48773,
+      "prepared_rows": 151,
+      "excluded_total_rows": 1,
+      "published_total": {
+        "approved": 36892,
+        "declined": 11871,
+        "decisions": 48763
+      }
+    },
+    {
+      "year": 2025,
+      "source_file": "data/original/new-zealand/student_visa_decisions_2025.csv",
+      "detail_rows": 155,
+      "detail_approvals": 35013,
+      "detail_declines": 6487,
+      "detail_decisions": 41500,
+      "prepared_rows": 155,
+      "excluded_total_rows": 1,
+      "published_total": {
+        "approved": 35013,
+        "declined": 6487,
+        "decisions": 41500
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "period": "2022",
+      "file": "data/prepared/new-zealand/student_visa_decisions_2022.csv",
+      "rows": 149,
+      "sha256": "f6f7b0d93868baa1a546deef0e4db63ce272cc0f9330c95bdfd2856a90ee6dba"
+    },
+    {
+      "period": "2023",
+      "file": "data/prepared/new-zealand/student_visa_decisions_2023.csv",
+      "rows": 157,
+      "sha256": "deabb7d5e46e53cb3ffad5cd9eabf4a8f1aca66508c52456fd78ed6d6001b05b"
+    },
+    {
+      "period": "2024",
+      "file": "data/prepared/new-zealand/student_visa_decisions_2024.csv",
+      "rows": 151,
+      "sha256": "279e5ebac1a7098f8effe53d439ffc1a0c04a5ea652ff9331006d2e18794ada7"
+    },
+    {
+      "period": "2025",
+      "file": "data/prepared/new-zealand/student_visa_decisions_2025.csv",
+      "rows": 155,
+      "sha256": "9b358720e7fb3326236fef86aed78b8b162a9e12dcb9dcc0be13762af9c15818"
+    },
+    {
+      "period": "2022-2025",
+      "file": "data/prepared/new-zealand/inz_student_visa_decisions_2022-2025.csv",
+      "rows": 179,
+      "sha256": "4d2c9942504ed8ff35b6b9738541e1803661667592edc55feb3ef2cf1293ad80"
+    }
+  ],
+  "output_validation": {
+    "columns_match_schema": true,
+    "countries_unique": true,
+    "countries_sorted": true,
+    "counts_nonnegative": true,
+    "decision_totals_reconcile": true,
+    "rates_reconcile": true,
+    "combined_counts_equal_sum_of_annual_tables": true
+  },
+  "reference_comparison": {
+    "reference_file": "tests/data/inz_student_visa_decisions_2022-2025.csv",
+    "prepared_file": "data/prepared/new-zealand/inz_student_visa_decisions_2022-2025.csv",
+    "reference_rows": 179,
+    "prepared_rows": 179,
+    "semantic_equal": true,
+    "compared_columns": [
+      "Country",
+      "Number approved",
+      "Number declined",
+      "Total applications",
+      "Approval rate"
+    ],
+    "reference_only_columns_ignored": [
+      "Applications_log10"
+    ],
+    "maximum_absolute_float_difference": 0.0,
+    "difference_count": 0,
+    "differences": [],
+    "reference_sha256": "4610ff8eb03ebad07b20d3c752b9d4b30b3038cbab9b37e62896773740f4e8d0",
+    "prepared_sha256": "4d2c9942504ed8ff35b6b9738541e1803661667592edc55feb3ef2cf1293ad80"
+  }
+}

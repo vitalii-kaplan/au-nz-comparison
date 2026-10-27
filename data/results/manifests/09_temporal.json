@@ -1,0 +1,68 @@
+{
+  "module": "src.analysis_09_temporal",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:31+00:00",
+  "configuration": {
+    "years": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "difference_direction": "AU - NZ",
+    "confidence_level": 0.95,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed_rule": "analysis seed plus calendar year"
+  },
+  "inputs": [
+    {
+      "path": "src/analysis_config.json",
+      "sha256": "4957d332a4e21c0e131efdeb95eecd4c56f49442421074d4cdb340c4c4ecb524"
+    },
+    {
+      "path": "data/prepared/comparison/destination_country_year.csv",
+      "sha256": "560c1206373a1bc58034c4f4c48c1a242d89cf7bb949c1171281b0c508d74b63"
+    },
+    {
+      "path": "data/prepared/comparison/matched_country_year.csv",
+      "sha256": "f9eaf132848f327fa85431684b463b4181c18da675cc32edfe10be98b758f6d8"
+    },
+    {
+      "path": "data/results/validation/data_validation_checks.csv",
+      "sha256": "ac4828d50a0d3deace4b7602a51247a725ffc3875f9e8a5c1ec00a7a2c382768"
+    },
+    {
+      "path": "data/results/validation/comparability_decisions.csv",
+      "sha256": "4198a30ef3bc36e8f4abce007751abe36f24813d470307fa6093dc84b309a9b7"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "annual_destination_summary",
+      "path": "data/results/temporal/annual_destination_summary.csv",
+      "sha256": "426e6809f33b67a99e23f9bc7a5f171931948812cf9f5dceffe49708867dbde2"
+    },
+    {
+      "name": "annual_matched_difference_summary",
+      "path": "data/results/temporal/annual_matched_difference_summary.csv",
+      "sha256": "12522154c09d556b3de80c0fbb63c2f1461cda3ba3855a956fcce4894823ae7c"
+    },
+    {
+      "name": "matched_country_year_differences",
+      "path": "data/results/temporal/matched_country_year_differences.csv",
+      "sha256": "2068a1850d14d064a613f279e01235e03463e1120463eebef2a21c009cf9d5de"
+    },
+    {
+      "name": "annual_distribution_statistics",
+      "path": "data/results/temporal/annual_distribution_statistics.csv",
+      "sha256": "46180dec2e6704514422e3b2d67b80c491dee1cc2bae979f8a2278f080dc88fe"
+    }
+  ],
+  "row_counts": {
+    "annual_destination_summary": 8,
+    "annual_matched_difference_summary": 4,
+    "matched_country_year_differences": 564,
+    "annual_distribution_statistics": 16
+  },
+  "interpretation_warning": "Annual results are descriptive or associational and use observed matched pairs only."
+}

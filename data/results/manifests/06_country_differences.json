@@ -1,0 +1,56 @@
+{
+  "module": "src.analysis_06_country_differences",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:29+00:00",
+  "configuration": {
+    "confidence_level": 0.95,
+    "minimum_expected_count": 5.0,
+    "fdr_level": 0.05,
+    "difference_interval": "Newcombe hybrid score",
+    "zero_cell_effect_rule": "Haldane-Anscombe 0.5 to all four cells",
+    "forest_display_rule": "largest 20 absolute rate differences among countries with at least 50 decisions in each destination"
+  },
+  "inputs": [
+    {
+      "path": "data/prepared/comparison/matched_country_2022-2025.csv",
+      "sha256": "14fab02d2e3f97169de9beb2ef521e668d2b68ea8f8755ff4950170d2e134faf"
+    },
+    {
+      "path": "data/results/validation/data_validation_checks.csv",
+      "sha256": "ac4828d50a0d3deace4b7602a51247a725ffc3875f9e8a5c1ec00a7a2c382768"
+    },
+    {
+      "path": "src/analysis_config.json",
+      "sha256": "4957d332a4e21c0e131efdeb95eecd4c56f49442421074d4cdb340c4c4ecb524"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "effects",
+      "path": "data/results/country_tests/country_specific_effects_and_tests.csv",
+      "sha256": "c3e898a9648f151aa34f9d0172a5103e029210cfb7f64dce7e4705cdc0a569a5"
+    },
+    {
+      "name": "summary",
+      "path": "data/results/country_tests/country_test_summary.csv",
+      "sha256": "8b06343d602338df6f6239f0c0887ff8e7e7d172e2b93735d51a26b837e73359"
+    },
+    {
+      "name": "forest_selection",
+      "path": "data/results/country_tests/forest_plot_selection.csv",
+      "sha256": "f7c3317f1ee36ad91f8f641e2704e6cd563dfe16668fe3b76d8f1a06952edf21"
+    }
+  ],
+  "summary": {
+    "countries_tested": 173,
+    "chi_square_tests": 60,
+    "fisher_exact_tests": 113,
+    "fdr_significant_at_0.05": 56,
+    "au_higher": 122,
+    "nz_higher": 32,
+    "equal": 19,
+    "meets_20_both": 91,
+    "meets_50_both": 66,
+    "zero_cell_corrections": 65
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "module": "src.analysis_02_build_tables",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:27+00:00",
+  "config_file": "src/analysis_config.json",
+  "config_sha256": "4957d332a4e21c0e131efdeb95eecd4c56f49442421074d4cdb340c4c4ecb524",
+  "contract_file": "data/results/validation/analysis_contract.csv",
+  "contract_sha256": "c0b336728647b08acf928206e5d029dd69fc67bccc87dbe29a40251d2ae33de9",
+  "input_registry_file": "data/results/validation/input_registry.csv",
+  "input_registry_sha256": "68b9e7df1cc4777af056298ed81a0fe9a0f148f3e53187540c74d558dcff6d7f",
+  "inputs": [
+    {
+      "path": "data/prepared/australia/student_visa_decisions_2022-2025-m49.csv",
+      "sha256": "6b92082acbf7099a48c62738a79cf9f99f2e1ae9ccee6bbef4de73142d162684",
+      "rows": 192
+    },
+    {
+      "path": "data/prepared/australia/student_visa_decisions_2022-m49.csv",
+      "sha256": "0daecbe8bad0deebd9a5848d40863b9fb272e11cf25ea62a660b174a6a364b4e",
+      "rows": 164
+    },
+    {
+      "path": "data/prepared/australia/student_visa_decisions_2023-m49.csv",
+      "sha256": "40f264319c2c903201b09d6472118a6ef0cc9557f4798b3f0348d6c1968263ed",
+      "rows": 167
+    },
+    {
+      "path": "data/prepared/australia/student_visa_decisions_2024-m49.csv",
+      "sha256": "bd38538c98a3549139bc6ad14792c23cac899a64663654e0e93a2d6c234b197b",
+      "rows": 162
+    },
+    {
+      "path": "data/prepared/australia/student_visa_decisions_2025-m49.csv",
+      "sha256": "18f4035cccc53c36498e6b174f005ecf8d40d2a7fcfe2966ae0c71181a968af8",
+      "rows": 171
+    },
+    {
+      "path": "data/prepared/new-zealand/student_visa_decisions_2022-2025-m49.csv",
+      "sha256": "07acfc74dbbab9dc394390af7197a5d254f0624e7a6e2682615972ccdc370a55",
+      "rows": 179
+    },
+    {
+      "path": "data/prepared/new-zealand/student_visa_decisions_2022-m49.csv",
+      "sha256": "3dfbfda03f465da6709687107ee0b743f7e3561e1d74ac23886ac018b7cd119c",
+      "rows": 149
+    },
+    {
+      "path": "data/prepared/new-zealand/student_visa_decisions_2023-m49.csv",
+      "sha256": "c87e32d4c8a0ee0a6be757c1a7b97789f2bc2dd334380f8a14bc2cb823d59bc9",
+      "rows": 157
+    },
+    {
+      "path": "data/prepared/new-zealand/student_visa_decisions_2024-m49.csv",
+      "sha256": "dbaa56e3ad9f393416226c2d262c6d957c58ad7c3ea2d422f1c96e20326bdbaf",
+      "rows": 151
+    },
+    {
+      "path": "data/prepared/new-zealand/student_visa_decisions_2025-m49.csv",
+      "sha256": "42ac995efb8c60ebd2021a2c3b29bc1937a71bfd94ad9f73d1ccd6c8710ad839",
+      "rows": 155
+    }
+  ],
+  "outputs": [
+    {
+      "artifact": "destination_country",
+      "path": "data/prepared/comparison/destination_country_2022-2025.csv",
+      "sha256": "cb3fd754049b7631e9893861d1badcc89786c9c4c2613aece3470ab6e7a1e5d9",
+      "rows": 371
+    },
+    {
+      "artifact": "matched_country",
+      "path": "data/prepared/comparison/matched_country_2022-2025.csv",
+      "sha256": "14fab02d2e3f97169de9beb2ef521e668d2b68ea8f8755ff4950170d2e134faf",
+      "rows": 173
+    },
+    {
+      "artifact": "destination_country_year",
+      "path": "data/prepared/comparison/destination_country_year.csv",
+      "sha256": "560c1206373a1bc58034c4f4c48c1a242d89cf7bb949c1171281b0c508d74b63",
+      "rows": 1276
+    },
+    {
+      "artifact": "matched_country_year",
+      "path": "data/prepared/comparison/matched_country_year.csv",
+      "sha256": "f9eaf132848f327fa85431684b463b4181c18da675cc32edfe10be98b758f6d8",
+      "rows": 564
+    },
+    {
+      "artifact": "validation_checks",
+      "path": "data/results/validation/data_validation_checks.csv",
+      "sha256": "ac4828d50a0d3deace4b7602a51247a725ffc3875f9e8a5c1ec00a7a2c382768",
+      "rows": 38
+    },
+    {
+      "artifact": "country_coverage",
+      "path": "data/results/validation/country_coverage.csv",
+      "sha256": "cadc1033d84954392846e613d43050fea10911509e1d0aa6bfe3d88802239c3a",
+      "rows": 910
+    },
+    {
+      "artifact": "small_denominators",
+      "path": "data/results/validation/small_denominators.csv",
+      "sha256": "ab39a6ef5bfce20e59174deaf5d7602d828ed766f83d4cd76ce24cbb23a4e22e",
+      "rows": 1061
+    },
+    {
+      "artifact": "issues_and_exclusions",
+      "path": "data/results/validation/data_issues_and_exclusions.csv",
+      "sha256": "ec114ba9395ed71b65928c3a70e933a663b0292b2eb5aa7e00f2b48453732b83",
+      "rows": 30
+    }
+  ],
+  "summary": {
+    "pooled_rows": 371,
+    "pooled_matched_countries": 173,
+    "country_year_rows": 1276,
+    "matched_country_year_rows": 564,
+    "matched_countries_by_year": {
+      "2022": 139,
+      "2023": 142,
+      "2024": 139,
+      "2025": 144
+    },
+    "small_denominator_rows": 1061,
+    "issue_and_exclusion_rows": 30,
+    "blocking_validation_failures": 0
+  }
+}

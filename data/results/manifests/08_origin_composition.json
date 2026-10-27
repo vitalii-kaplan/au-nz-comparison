@@ -1,0 +1,75 @@
+{
+  "module": "src.analysis_08_origin_composition",
+  "status": "passed",
+  "analysis_timestamp_utc": "2026-10-27T08:52:30+00:00",
+  "configuration": {
+    "confidence_level": 0.95,
+    "bootstrap_seed": 20260927,
+    "bootstrap_replicates": 10000,
+    "hhi_scale": "0-1"
+  },
+  "inputs": [
+    {
+      "path": "src/analysis_config.json",
+      "sha256": "4957d332a4e21c0e131efdeb95eecd4c56f49442421074d4cdb340c4c4ecb524"
+    },
+    {
+      "path": "data/prepared/comparison/destination_country_2022-2025.csv",
+      "sha256": "cb3fd754049b7631e9893861d1badcc89786c9c4c2613aece3470ab6e7a1e5d9"
+    },
+    {
+      "path": "data/prepared/comparison/matched_country_2022-2025.csv",
+      "sha256": "14fab02d2e3f97169de9beb2ef521e668d2b68ea8f8755ff4950170d2e134faf"
+    },
+    {
+      "path": "data/results/validation/data_validation_checks.csv",
+      "sha256": "ac4828d50a0d3deace4b7602a51247a725ffc3875f9e8a5c1ec00a7a2c382768"
+    },
+    {
+      "path": "data/results/validation/comparability_decisions.csv",
+      "sha256": "4198a30ef3bc36e8f4abce007751abe36f24813d470307fa6093dc84b309a9b7"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "shares",
+      "path": "data/results/composition/origin_shares.csv",
+      "sha256": "14ac50db1fff0232770d86c0207af58e9d7014587319f1b75efa4946930f2c3e"
+    },
+    {
+      "name": "concentration",
+      "path": "data/results/composition/concentration_statistics.csv",
+      "sha256": "c8837db034535b65f0b6d607c4090c690e39090ad37b0e777a49f95faaf06419"
+    },
+    {
+      "name": "concordance",
+      "path": "data/results/composition/share_concordance.csv",
+      "sha256": "60f9d381b6fbc642c88ebb543af830490a10a6fad332b68a9d19f7fbfbbb8967"
+    },
+    {
+      "name": "distance",
+      "path": "data/results/composition/composition_distance.csv",
+      "sha256": "50f80ea632a3b94f5c7be461ed49fb3c52b7fa3a198d8a80a39f5003eedf323a"
+    },
+    {
+      "name": "ranked",
+      "path": "data/results/composition/ranked_share_points.csv",
+      "sha256": "88b23f39061aa96ac9d4eda2a601e94d7f4a7ef7f37f93d5924cd84242832627"
+    },
+    {
+      "name": "lorenz",
+      "path": "data/results/composition/lorenz_curve_points.csv",
+      "sha256": "ac7a15a06686b1c20d5ee559bf7901100e46ba70bd9960a9b7b450caa895e8e2"
+    },
+    {
+      "name": "scatter",
+      "path": "data/results/composition/share_scatter_points.csv",
+      "sha256": "af10674d4da2cdd0fd4bcfa6fc47223f5bb9491f87ef8c7ec1724490038bddb7"
+    }
+  ],
+  "summary": {
+    "destinations": 2,
+    "matched_origins": 173,
+    "jsd_status": "skipped_ineligible"
+  }
+}

@@ -1,0 +1,2 @@
+# Preserve the downloaded official UN M49 webpage byte-for-byte.
+data/original/reference/un-m49-overview.html -text -whitespace

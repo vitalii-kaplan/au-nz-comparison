@@ -1,0 +1,179 @@
+{
+  "source_file": "data/original/australia/student_visa_grant_rates_2005_2026-02-28.csv",
+  "source_sha256": "d5c15a5f638339173575c6424dad8a83328f46bfc35dd46f7e89a14dd64b4045",
+  "filters": {
+    "client_location": "Outside Australia",
+    "applicant_type": "Primary",
+    "sector": "Higher Education Sector"
+  },
+  "calendar_year_rule": {
+    "M01_M06": "financial-year starting year (July-December)",
+    "M07_M12": "financial-year starting year plus one (January-June)"
+  },
+  "target_calendar_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "filter_funnel": {
+    "source_rows": 2046442,
+    "outside_australia_rows": 1098276,
+    "outside_primary_rows": 834310,
+    "outside_primary_higher_education_rows": 291988,
+    "selected_calendar_year_rows": 62671
+  },
+  "source_reconciliation_failures": 0,
+  "selected_source_rate_failures": 0,
+  "annual": [
+    {
+      "calendar_year": 2022,
+      "selected_source_rows": 16398,
+      "country_rows": 166,
+      "number_approved": 143885,
+      "number_declined": 17993,
+      "total_applications_legacy_decision_total": 161878,
+      "financial_years_used": [
+        "2021-22",
+        "2022-23"
+      ],
+      "months_used": [
+        "M01 Jul",
+        "M02 Aug",
+        "M03 Sep",
+        "M04 Oct",
+        "M05 Nov",
+        "M06 Dec",
+        "M07 Jan",
+        "M08 Feb",
+        "M09 Mar",
+        "M10 Apr",
+        "M11 May",
+        "M12 Jun"
+      ]
+    },
+    {
+      "calendar_year": 2023,
+      "selected_source_rows": 16732,
+      "country_rows": 168,
+      "number_approved": 188588,
+      "number_declined": 42578,
+      "total_applications_legacy_decision_total": 231166,
+      "financial_years_used": [
+        "2022-23",
+        "2023-24"
+      ],
+      "months_used": [
+        "M01 Jul",
+        "M02 Aug",
+        "M03 Sep",
+        "M04 Oct",
+        "M05 Nov",
+        "M06 Dec",
+        "M07 Jan",
+        "M08 Feb",
+        "M09 Mar",
+        "M10 Apr",
+        "M11 May",
+        "M12 Jun"
+      ]
+    },
+    {
+      "calendar_year": 2024,
+      "selected_source_rows": 14924,
+      "country_rows": 163,
+      "number_approved": 162405,
+      "number_declined": 22998,
+      "total_applications_legacy_decision_total": 185403,
+      "financial_years_used": [
+        "2023-24",
+        "2024-25"
+      ],
+      "months_used": [
+        "M01 Jul",
+        "M02 Aug",
+        "M03 Sep",
+        "M04 Oct",
+        "M05 Nov",
+        "M06 Dec",
+        "M07 Jan",
+        "M08 Feb",
+        "M09 Mar",
+        "M10 Apr",
+        "M11 May",
+        "M12 Jun"
+      ]
+    },
+    {
+      "calendar_year": 2025,
+      "selected_source_rows": 14617,
+      "country_rows": 172,
+      "number_approved": 144201,
+      "number_declined": 14804,
+      "total_applications_legacy_decision_total": 159005,
+      "financial_years_used": [
+        "2024-25",
+        "2025-26 to 30 April 2026"
+      ],
+      "months_used": [
+        "M01 Jul",
+        "M02 Aug",
+        "M03 Sep",
+        "M04 Oct",
+        "M05 Nov",
+        "M06 Dec",
+        "M07 Jan",
+        "M08 Feb",
+        "M09 Mar",
+        "M10 Apr",
+        "M11 May",
+        "M12 Jun"
+      ]
+    }
+  ],
+  "status": "passed",
+  "schema_file": "data/schema.json",
+  "outputs": [
+    {
+      "period": "2022",
+      "file": "data/prepared/australia/student_visa_decisions_2022.csv",
+      "sha256": "a5a776eea0cfaaa47deb1dc62c76236f6252a8efccbb93ac8eb8b6c850edd6de"
+    },
+    {
+      "period": "2023",
+      "file": "data/prepared/australia/student_visa_decisions_2023.csv",
+      "sha256": "2d8d80a0a8e019fdb64bf057282b08475b98c65124ebca31fff9cb1ea42161ef"
+    },
+    {
+      "period": "2024",
+      "file": "data/prepared/australia/student_visa_decisions_2024.csv",
+      "sha256": "9ba09ad43fe3dc2076ff3ab2eb93189fc6c396a207e55cbd257fbf782fc0aea6"
+    },
+    {
+      "period": "2025",
+      "file": "data/prepared/australia/student_visa_decisions_2025.csv",
+      "sha256": "33177936e5f454e77d2e688069fa486d8aa10f56eff7b3c4dbf2aa870512aec6"
+    },
+    {
+      "period": "2022-2025",
+      "file": "data/prepared/australia/student_visa_decisions_2022-2025.csv",
+      "sha256": "6dc93edc09ee3f60565090e5fb1474059f0ba60c9a76b1e84dc13177cd7d46c4"
+    }
+  ],
+  "combined": {
+    "country_rows": 194,
+    "number_approved": 639079,
+    "number_declined": 98373,
+    "total_applications_legacy_decision_total": 737452
+  },
+  "validation": {
+    "source_counts_reconcile": true,
+    "source_rates_reconcile": true,
+    "annual_aggregation_conserves_counts": true,
+    "combined_aggregation_conserves_annual_counts": true,
+    "output_columns_match_schema": true,
+    "country_keys_unique_within_each_output": true,
+    "country_keys_sorted": true,
+    "prepared_rates_recalculated_from_aggregated_counts": true
+  }
+}
