@@ -431,6 +431,51 @@
         "article/README.md",
         "process_log.json"
       ]
+    },
+    {
+      "id": "020",
+      "date": "2026-10-27",
+      "phase": "manuscript_proofreading_and_citation_audit",
+      "status": "empirically_verified",
+      "summary": "Proofread the complete manuscript for wording, grammar, cohesion, and terminology, and verified every bibliographic record and named-author attribution in the literature review.",
+      "changes": [
+        "Improved sentence clarity and cohesion across the abstract, introduction, literature review, data, methods, results, sensitivity analysis, discussion, limitations, and conclusion without changing the reported evidence or substantive conclusions.",
+        "Standardised British English, statistical terminology, confidence-interval wording, and the title of the sensitivity-analysis section.",
+        "Removed ordinary prose semicolons and clarified several descriptions of concordance, model interpretation, denominator thresholds, and future research.",
+        "Updated the retained literature source registry with the confirmed journal and DOI for Gharib, Dibb, and Zhang (2026)."
+      ],
+      "verification": [
+        "Confirmed that all 41 bibliography entries are cited, all 41 citation keys resolve, and no bibliography entries are unused.",
+        "Verified all 34 DOI-bearing records against Crossref or DataCite and found no false DOI or author-title mismatch.",
+        "Verified the seven non-DOI records against the relevant official UNESCO, United Nations, Immigration New Zealand, or public GitHub pages.",
+        "Checked every author named in the literature-review prose against the authors of the accompanying citation and found no mismatch.",
+        "Confirmed that issue years retained for online-first articles correspond to their final journal issues rather than their earlier online-publication dates.",
+        "Built the 30-page manuscript successfully and confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, or whitespace errors.",
+        "Inspected the rendered abstract, introduction, literature review, sensitivity analysis, discussion, and limitations pages."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "article/LR_sources.md",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "021",
+      "date": "2026-10-27",
+      "phase": "readme_abstract_synchronization",
+      "status": "statically_validated",
+      "summary": "Synchronized the GitHub README abstract with the proofread manuscript abstract.",
+      "changes": [
+        "Applied the revised causal-boundary, confidence-interval, and origin-context wording from article/article.tex to the README abstract."
+      ],
+      "verification": [
+        "Confirmed that the README abstract matches the manuscript abstract after normalizing LaTeX and Markdown typography."
+      ],
+      "artifacts": [
+        "README.md",
+        "process_log.json"
+      ]
     }
   ]
 }

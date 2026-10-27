@@ -27,7 +27,8 @@ This file is the retained human-readable source registry for the journal article
 ### 1.3 Examining the Impacts of Visa Policy Changes on International Student Enrolment and Mobility
 
 - **Authors:** Rebwar Kamal Gharib, Sally Dibb, Crystal Zhang.
-- **Publication:** Peer-reviewed journal article, 2026 (journal metadata to confirm).
+- **Publication:** *Studies in Higher Education*, 2026.
+- **DOI:** https://doi.org/10.1080/03075079.2026.2673034
 - **Source:** https://pureportal.coventry.ac.uk/en/publications/examining-the-impacts-of-visa-policy-changes-on-international-stu/
 - **Relevance:** High thematic relevance. Multi-country visa-policy comparison involving the UK, US, Canada, and Australia.
 - **Use in review:** Compare the role of visa policy in enrolment and mobility, while emphasizing that the present study examines observed visa-decision proportions rather than enrolment outcomes.
