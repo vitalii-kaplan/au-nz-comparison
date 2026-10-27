@@ -360,6 +360,27 @@
         "scripts/reproduce_article.py",
         "data/results/manifests/pipeline_run.json"
       ]
+    },
+    {
+      "id": "017",
+      "date": "2026-10-27",
+      "phase": "github_readme_article_identity",
+      "status": "statically_validated",
+      "summary": "Aligned the public GitHub README with the current manuscript title and abstract without changing the manuscript.",
+      "changes": [
+        "Replaced the repository-style heading with the exact article title.",
+        "Replaced the introductory summary with a Markdown rendering of the article abstract.",
+        "Removed the separate Main findings section because it duplicated the abstract."
+      ],
+      "verification": [
+        "Compared the README heading and abstract against article/article.tex.",
+        "Confirmed that all README repository-relative links resolve.",
+        "Confirmed that article/article.tex, article/bibliography.bib, and article/article.pdf were unchanged."
+      ],
+      "artifacts": [
+        "README.md",
+        "process_log.json"
+      ]
     }
   ]
 }

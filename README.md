@@ -1,16 +1,10 @@
-# Australia–New Zealand Student Visa Decision Comparison
+# Comparison of Student Visa Decision Outcomes Between Australia and New Zealand Across Applicant-Origin Countries
 
-This repository contains the data-preparation code, statistical pipeline, validation records, publication outputs, and manuscript for a matched-origin comparison of Australian and New Zealand student visa decisions from 2022 to 2025.
+## Abstract
 
-The study compares aggregate public records for applicant origins observed in both destinations. Approval rates use a common decision denominator:
+This study compares student visa decision approval rates using aggregate public records from Australia and New Zealand for 2022–2025. We calculate each rate as approvals divided by approvals plus refusals and compare 173 published applicant origins observed in both destinations. The mean Australian-minus-New Zealand difference was 16.3 percentage points (95% confidence interval 12.7–19.9). Approval rates were positively associated across destinations (Pearson $r = 0.629$), showing that applicant-origin context contributes to the observed pattern. However, 56 country-specific differences remained significant after Benjamini–Hochberg adjustment, and the pooled origin-adjusted model produced an Australian-minus-New Zealand contrast of 10.9 points (6.6–15.2). The positive average direction persisted at every pre-specified minimum-decision threshold, although country-specific differences varied in both size and direction. These findings show that the student's origin country matters but is not sufficient to explain recorded approval rates. Records for the same published origin country can have different rates in Australia and New Zealand as immigration destinations. Explanation therefore requires attention to the pair formed by the student's origin country and the immigration destination country. The estimates are aggregate associations and do not identify a causal destination effect or an individual applicant's probability of approval.
 
-```text
-approvals or grants / (approvals or grants + declines or refusals)
-```
-
-This is a comparison of completed recorded decisions, not all lodged applications. The analysis is descriptive and associational. It does not estimate causal policy effects or an individual applicant's probability of approval.
-
-The current manuscript is available as [article/article.pdf](article/article.pdf), with its LaTeX source in [article/article.tex](article/article.tex).
+The manuscript is available as [article/article.pdf](article/article.pdf), with its LaTeX source in [article/article.tex](article/article.tex).
 
 ## Study design
 
@@ -23,18 +17,6 @@ The analysis uses the closest comparable public populations available:
 Country labels are harmonized separately within each year against the English UN M49 reference before annual records are pooled. Taiwan and Kosovo are retained as reviewed non-M49 exceptions where present. Australian `Not Specified` and `Refugee` records are excluded from country-level comparison.
 
 The principal analytical population contains 173 matched applicant origins. The pipeline distinguishes decision-weighted national summaries, equally weighted origin-country comparisons, country-specific differences, and origin-adjusted grouped-binomial estimates.
-
-## Main findings
-
-Under the study definitions:
-
-- the mean matched-origin Australian-minus-New Zealand approval-rate difference was 16.3 percentage points (95% CI 12.7–19.9);
-- approval rates were positively associated across destinations (Pearson `r = 0.629`);
-- 56 country-specific differences remained significant after Benjamini–Hochberg adjustment;
-- the pooled origin-adjusted Australian-minus-New Zealand contrast was 10.9 percentage points (95% CI 6.6–15.2); and
-- the positive average direction persisted across all pre-specified minimum-decision thresholds, although origin-specific differences varied in magnitude and direction.
-
-These results should not be interpreted as a ranking of visa systems, evidence of procedural fairness or unfairness, or an estimate for individual applicants. The Australian and New Zealand source populations are close comparators, not identical applicant groups.
 
 ## Data sources
 
