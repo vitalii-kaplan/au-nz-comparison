@@ -2,7 +2,6 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{booktabs}
-\usepackage{float}
 \usepackage{graphicx}
 \usepackage{pgfplots}
 \usepackage[hyphens]{url}
@@ -206,7 +205,7 @@ All pre-specified data-validation checks passed, with no unresolved errors in th
 
 Figure~\ref{fig:data-coverage-overview} shows the much larger Australian decision volume and the stable annual matched-country population. Between 139 and 144 origins were observed in both destinations in each year. The volume comparison describes dataset scale, not approval rates.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \input{figures/data_coverage_overview}
 \caption{Scale and annual overlap of the validated comparison data. Panel (a) reports recorded two-outcome decisions pooled across 2022--2025. Panel (b) reports harmonised origin countries represented in both destinations in each calendar year.}
@@ -219,7 +218,7 @@ Table~\ref{tab:comparability-coverage} gives the pooled and annual overlap. The 
 
 Figure~\ref{fig:comparability-audit} separates the matched and destination-specific origins. The unmatched origins show why absence from one dataset cannot be interpreted as zero decisions.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \input{figures/comparability_audit}
 \caption{Comparability audit for pooled and annual origin-country coverage. Panel (a) shows the share of origins in each observed union that occurred in both destinations. Panel (b) decomposes unmatched origins by the destination in which they were observed. Absence from the other destination was not treated as a zero count.}
@@ -238,7 +237,7 @@ The country-weighted distributions also differed. The median country approval ra
 
 Figure~\ref{fig:decision-volume-log10-bins} groups origin countries by the order of magnitude of their recorded decision totals. Most origins had fewer than 100 decisions in each destination. Australia had more origins in the two largest volume groups, including two with at least 100,000 decisions, while New Zealand had none in that group.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \input{figures/decision_volume_log10_bins}
 \caption{Distribution of pooled 2022--2025 recorded decision totals across represented origin countries, by destination. The x-axis is the integer part of the base-10 logarithm of each country's decision total: 0 represents 1--9 decisions, 1 represents 10--99, and so forth. Each represented origin contributes once within each destination.}
@@ -247,7 +246,7 @@ Figure~\ref{fig:decision-volume-log10-bins} groups origin countries by the order
 
 Figure~\ref{fig:descriptive-ecdfs} shows both empirical distributions. The Australian approval-rate curve lies mostly above the New Zealand curve, which is consistent with higher country-level rates across much of the distribution. The decision-volume curves show that most represented origins had relatively small counts in both destinations, while a limited number of origins accounted for very large volumes.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \input{figures/descriptive_ecdfs}
 \caption{Country-level empirical cumulative distributions by destination. Panel (a) reports decision approval rates. Panel (b) reports recorded decision totals on a base-10 logarithmic scale. Each represented origin country contributes one observation.}
@@ -262,7 +261,7 @@ The second research question concerns the direction and magnitude of rate differ
 
 After removing the 19 exact zero differences, the two-sided Wilcoxon signed-rank test used 154 pairs. The smaller signed-rank sum was $W=1419.5$, with $p<0.001$. The paired $t$-test gave $t(172)=8.93$ and $p<0.001$. The primary test and the sensitivity test therefore both support a positive country-weighted AU-minus-NZ difference in this matched population.
 
-\begin{figure}[!t]
+\begin{figure}
 \centering
 \input{figures/matched_difference_distribution}
 \caption{Ordered country-level differences in approval rates for 173 origins represented in both destinations, with the mean and median differences and their 95\% confidence intervals. Differences are Australia minus New Zealand in percentage points. The grey dashed line marks equality. The blue band is the Student-$t$ interval for the mean, and the red band is the percentile-bootstrap interval for the median. These bands describe uncertainty in the summary estimates rather than the distribution of individual country differences.}
@@ -277,7 +276,7 @@ The third research question asks whether countries with higher rates in one dest
 
 \input{tables/approval_rate_concordance}
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \input{figures/approval_rate_concordance}
 \caption{Australian and New Zealand approval rates for 173 matched origin countries. Both axes use the same scale. The dashed equality line indicates equal rates and is not a fitted model.}
@@ -294,7 +293,7 @@ Table~\ref{tab:country-specific-results} gives the ten largest absolute differen
 
 \input{tables/country_specific_results}
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \input{figures/country_difference_forest}
 \caption{Selected country-specific AU-minus-NZ approval-rate differences with Newcombe 95\% confidence intervals. The plot shows the 20 largest absolute differences among countries with at least 50 decisions in each destination. The complete analysis includes all 173 matched countries.}
@@ -311,7 +310,7 @@ The fifth research question asks whether destination is associated with approval
 
 Figure~\ref{fig:pooled-standardized-probabilities} shows the standardised destination probabilities and their adjusted difference on the probability scale.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \input{figures/pooled_standardized_probabilities}
 \caption{Origin-adjusted approval probabilities and their Australian-minus-New Zealand contrast from the pooled country-fixed-effect binomial model. Points are standardised estimates and error bars are 95\% confidence intervals. Probabilities are averaged equally over the 155 retained matched origins.}
@@ -330,7 +329,7 @@ The denominator restrictions reduced the matched population from 173 origins to 
 
 Approval-rate concordance became stronger after sparse origins were removed (Table~\ref{tab:sensitivity-concordance}). Pearson correlation increased from 0.629 for all 173 origins to 0.778, 0.792, and 0.794 at the 20-, 50-, and 100-decision thresholds, respectively. Spearman correlation increased from 0.472 to 0.739, 0.725, and 0.815. All correlation intervals excluded zero. The stronger restricted-sample correlations indicate that unstable rates among small-denominator origins weakened the complete-sample association, while the positive paired differences remained present in the restricted populations.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \input{figures/threshold_sensitivity}
 \caption{Sensitivity to pre-specified minimum decision denominators in both destinations. Panel (a) shows country-weighted mean and median Australian-minus-New Zealand differences. Panel (b) shows Pearson and Spearman approval-rate concordance. Error bars are the corresponding 95\% intervals.}

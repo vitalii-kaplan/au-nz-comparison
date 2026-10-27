@@ -30,7 +30,7 @@ class ComparabilityPublicationTest(unittest.TestCase):
             coverage = outputs["coverage_table"].read_text(encoding="utf-8")
             self.assertIn("Pooled & 198 & 173 & 25 & 19 & 6 & 87.4\\%", coverage)
             self.assertIn("2023 & 182 & 142 & 40 & 25 & 15 & 78.0\\%", coverage)
-            self.assertEqual(coverage.count(r"\begin{table}[H]"), 1)
+            self.assertEqual(coverage.count(r"\begin{table}"), 1)
 
             figure = outputs["figure"].read_text(encoding="utf-8")
             self.assertIn(r"group size=2 by 1", figure)

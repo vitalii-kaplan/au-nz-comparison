@@ -619,6 +619,38 @@
         "data/README.md",
         "process_log.json"
       ]
+    },
+    {
+      "id": "029",
+      "date": "2026-10-27",
+      "phase": "spncs_figure_placement",
+      "status": "empirically_verified",
+      "summary": "Returned figure and table placement to the standard LNCS class instead of forcing positions through the float package.",
+      "changes": [
+        "Removed the float package from the manuscript preamble.",
+        "Removed all H and !t placement options so every figure and table uses the standard LNCS float environments.",
+        "Updated the deterministic publication-table generators so regenerated tables retain the standard LNCS placement."
+      ],
+      "verification": [
+        "Built the manuscript successfully with the LNCS class controlling figure placement.",
+        "Confirmed that every figure and table appears before the bibliography and remains associated with its Results or sensitivity subsection.",
+        "Confirmed that all seven publication-generator tests pass with standard LNCS table environments.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "article/tables/",
+        "scripts/generate_article_analysis_outputs.py",
+        "scripts/generate_article_comparability_outputs.py",
+        "scripts/generate_article_concordance_country_outputs.py",
+        "scripts/generate_article_model_outputs.py",
+        "scripts/generate_article_sensitivity_outputs.py",
+        "scripts/generate_article_validation_outputs.py",
+        "tests/test_generate_article_comparability_outputs.py",
+        "tests/test_generate_article_sensitivity_outputs.py",
+        "process_log.json"
+      ]
     }
   ]
 }

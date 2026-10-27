@@ -20,7 +20,7 @@ class ArticleSensitivityOutputsTest(unittest.TestCase):
             table = outputs["table"].read_text(encoding="utf-8")
             figure = outputs["figure"].read_text(encoding="utf-8")
             self.assertIn("Threshold 0 includes every pooled matched origin", table)
-            self.assertEqual(table.count(r"\begin{table}[H]"), 2)
+            self.assertEqual(table.count(r"\begin{table}"), 2)
             self.assertIn(r"\label{tab:sensitivity-paired}", table)
             self.assertIn(r"\label{tab:sensitivity-concordance}", table)
             self.assertIn("100 & 54", table)
