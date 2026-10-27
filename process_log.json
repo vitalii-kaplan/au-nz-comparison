@@ -476,6 +476,149 @@
         "README.md",
         "process_log.json"
       ]
+    },
+    {
+      "id": "022",
+      "date": "2026-10-27",
+      "phase": "manuscript_framework_wording",
+      "status": "empirically_verified",
+      "summary": "Replaced an overly strong description of the matched-origin analysis as a framework with the more proportionate term approach.",
+      "changes": [
+        "Changed one Introduction sentence from contributing a reproducible matched-origin framework to using a reproducible matched-origin approach."
+      ],
+      "verification": [
+        "Rebuilt the 30-page manuscript successfully and confirmed that the revised sentence appears in the rendered PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "023",
+      "date": "2026-10-27",
+      "phase": "manuscript_structure_transition",
+      "status": "empirically_verified",
+      "summary": "Simplified the Introduction's transition to the article structure.",
+      "changes": [
+        "Replaced the figurative statement that the article develops its argument in stages with the plain transition: The article is organised as follows."
+      ],
+      "verification": [
+        "Rebuilt the 30-page manuscript successfully and confirmed that the revised sentence appears in the rendered PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "024",
+      "date": "2026-10-27",
+      "phase": "manuscript_repository_access_explanation",
+      "status": "empirically_verified",
+      "summary": "Expanded the Data section's explanation of how readers can obtain source files and resolve repository-relative paths.",
+      "changes": [
+        "Moved the repository information from the source-description paragraph into a separate reader-facing reproducibility paragraph.",
+        "Explained that readers can obtain the archive and data paper from Zenodo by following the checksummed download and selective-extraction instructions in data/README.md.",
+        "Clarified that large source inputs are not stored in Git, while project documentation, code, validation records, and publication files are version-controlled in the public GitHub repository.",
+        "Defined repository-relative paths used elsewhere in the article as paths from the root of the cited public repository."
+      ],
+      "verification": [
+        "Confirmed that the access explanation agrees with data/README.md and the repository contents.",
+        "Rebuilt the 30-page manuscript successfully and confirmed that the new paragraph appears in the rendered PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "025",
+      "date": "2026-10-27",
+      "phase": "manuscript_repository_access_voice",
+      "status": "empirically_verified",
+      "summary": "Changed the source-access sentence in the Data section to passive voice.",
+      "changes": [
+        "Replaced Readers can obtain with The source archive and accompanying data paper can be obtained."
+      ],
+      "verification": [
+        "Rebuilt the 30-page manuscript successfully and confirmed that the revised sentence appears in the rendered PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "026",
+      "date": "2026-10-27",
+      "phase": "manuscript_repository_access_order",
+      "status": "empirically_verified",
+      "summary": "Reordered the Data section's repository-access paragraph from the public GitHub record to included project files and then excluded source inputs.",
+      "changes": [
+        "Introduced the version-controlled public GitHub repository first.",
+        "Listed the project files available in the repository and explained how repository-relative paths resolve.",
+        "Then identified the source archive, data paper, and extracted inputs excluded from Git and explained how they can be obtained or recreated from Zenodo."
+      ],
+      "verification": [
+        "Confirmed that the reordered explanation agrees with data/README.md and the repository contents.",
+        "Rebuilt the 30-page manuscript successfully and confirmed that the reordered paragraph appears in the rendered PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "027",
+      "date": "2026-10-27",
+      "phase": "manuscript_repository_subject_wording",
+      "status": "empirically_verified",
+      "summary": "Clarified that the project files, rather than the project as an abstract entity, are maintained under version control.",
+      "changes": [
+        "Changed The project is maintained to The project files are maintained in the repository-access paragraph."
+      ],
+      "verification": [
+        "Rebuilt the 30-page manuscript successfully and confirmed that the revised wording appears in the rendered PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "028",
+      "date": "2026-10-27",
+      "phase": "data_readme_root_relative_paths",
+      "status": "statically_validated",
+      "summary": "Standardised project paths in data/README.md as paths relative to the repository root.",
+      "changes": [
+        "Added the data/ prefix to documented source, prepared-data, support, reference, result, and manifest paths.",
+        "Expanded abbreviated output ranges so that both endpoints are complete repository-relative paths.",
+        "Clarified that the final checksum table lists repository-relative extracted-file paths.",
+        "Preserved paths internal to the downloaded archive, external URLs, commands, field names, and category values unchanged."
+      ],
+      "verification": [
+        "Scanned data/README.md for remaining project paths lacking a repository-root prefix.",
+        "Confirmed that every revised local path currently resolves from the repository root.",
+        "Confirmed that the documentation change introduces no whitespace errors."
+      ],
+      "artifacts": [
+        "data/README.md",
+        "process_log.json"
+      ]
     }
   ]
 }

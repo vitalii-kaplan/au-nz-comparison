@@ -13,10 +13,10 @@ The files were downloaded from Zenodo on 26 September 2026.
 
 | Record | Local file | Bytes | Published MD5 |
 | --- | --- | ---: | --- |
-| `21453632` | `original/zenodo/Reproducible-Cross-National-Dataset.pdf` | 363,333 | `bba6ab4c9096904d5ff664d2c7ec89ac` |
-| `21446641` | `original/zenodo/data.zip` | 672,630,395 | `f82c8b153099fd1a19cdf4fb20f58ab6` |
+| `21453632` | `data/original/zenodo/Reproducible-Cross-National-Dataset.pdf` | 363,333 | `bba6ab4c9096904d5ff664d2c7ec89ac` |
+| `21446641` | `data/original/zenodo/data.zip` | 672,630,395 | `f82c8b153099fd1a19cdf4fb20f58ab6` |
 
-Both downloaded files were checked successfully against the MD5 values returned by the Zenodo records API. The API responses are preserved locally as `original/zenodo/record-21453632.json` and `original/zenodo/record-21446641.json`.
+Both downloaded files were checked successfully against the MD5 values returned by the Zenodo records API. The API responses are preserved locally as `data/original/zenodo/record-21453632.json` and `data/original/zenodo/record-21446641.json`.
 
 These large downloaded files and extracted tables are intentionally ignored by Git. They remain local immutable inputs and can be recreated with the commands below.
 
@@ -111,7 +111,7 @@ This command prepares and harmonizes the source tables, executes the statistical
 
 ### Australia
 
-`original/australia/student_visa_grant_rates_2005_2026-02-28.csv` contains 2,046,442 data rows with these fields:
+`data/original/australia/student_visa_grant_rates_2005_2026-02-28.csv` contains 2,046,442 data rows with these fields:
 
 ```text
 financial_year_of_decision
@@ -147,7 +147,7 @@ It is not grants divided by lodged applications.
 
 ### New Zealand
 
-The four files under `original/new-zealand/` contain one annual row per published country, territory, or special administrative region.
+The four files under `data/original/new-zealand/` contain one annual row per published country, territory, or special administrative region.
 
 - 2022 contains year, origin label, approvals, declines, and decline rate.
 - 2023–2025 additionally contain application volume and approval rate.
@@ -165,11 +165,11 @@ Run from the repository root:
 python3 scripts/prepare_new_zealand.py
 ```
 
-The script reads the four immutable annual files under `original/new-zealand/`, validates their years and required fields, excludes the published aggregate `Total` rows, and derives the decision total and approval rate defined by `schema.json` for every source-label country row. It writes four annual source-label tables and then sums those annual tables into the compatibility combined table:
+The script reads the four immutable annual files under `data/original/new-zealand/`, validates their years and required fields, excludes the published aggregate `Total` rows, and derives the decision total and approval rate defined by `data/schema.json` for every source-label country row. It writes four annual source-label tables and then sums those annual tables into the compatibility combined table:
 
-- `prepared/new-zealand/student_visa_decisions_2022.csv` through `student_visa_decisions_2025.csv`;
-- `prepared/new-zealand/inz_student_visa_decisions_2022-2025.csv`; and
-- `support/new-zealand-reference-comparison.json`.
+- `data/prepared/new-zealand/student_visa_decisions_2022.csv` through `data/prepared/new-zealand/student_visa_decisions_2025.csv`;
+- `data/prepared/new-zealand/inz_student_visa_decisions_2022-2025.csv`; and
+- `data/support/new-zealand-reference-comparison.json`.
 
 The comparison report verifies that the combined counts equal the sum of the four annual prepared tables. It also checks the five retained combined columns against the previous article fixture at `tests/data/inz_student_visa_decisions_2022-2025.csv`, including column order, country order, row count, integer counts, and approval rates. The reference-only `Applications_log10` column is intentionally ignored: it is derived entirely from the decision total and is not part of this project's prepared table. The regression test in `tests/test_prepare_new_zealand.py` independently runs the preparation script in a temporary directory and repeats this semantic comparison.
 
@@ -181,7 +181,7 @@ Run from the repository root:
 python3 scripts/prepare_australia.py
 ```
 
-The script reads the preserved Australian grant-rate source, applies the documented population filters, reconstructs calendar years, produces four intermediate annual tables and one combined 2022--2025 table, and writes a machine-readable audit to `support/australia-preparation-audit.json`.
+The script reads the preserved Australian grant-rate source, applies the documented population filters, reconstructs calendar years, produces four intermediate annual tables and one combined 2022--2025 table, and writes a machine-readable audit to `data/support/australia-preparation-audit.json`.
 
 ### 1. Select the comparable Australian population
 
@@ -224,7 +224,7 @@ Recalculate the rate from aggregated counts. Do not average `computed_grant_rate
 
 ### 4. Write and validate Australian outputs
 
-Every output uses the five fields in `schema.json`. Australian grants map to `Number approved`, refusals map to `Number declined`, and the legacy `Total applications` field is grants plus refusals. Rates are recalculated after aggregation.
+Every output uses the five fields in `data/schema.json`. Australian grants map to `Number approved`, refusals map to `Number declined`, and the legacy `Total applications` field is grants plus refusals. Rates are recalculated after aggregation.
 
 | Calendar year | Selected source rows | Country labels | Grants | Refusals | Decisions |
 | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -237,12 +237,12 @@ Every output uses the five fields in `schema.json`. Australian grants map to `Nu
 The generated files are:
 
 ```text
-prepared/australia/student_visa_decisions_2022.csv
-prepared/australia/student_visa_decisions_2023.csv
-prepared/australia/student_visa_decisions_2024.csv
-prepared/australia/student_visa_decisions_2025.csv
-prepared/australia/student_visa_decisions_2022-2025.csv
-support/australia-preparation-audit.json
+data/prepared/australia/student_visa_decisions_2022.csv
+data/prepared/australia/student_visa_decisions_2023.csv
+data/prepared/australia/student_visa_decisions_2024.csv
+data/prepared/australia/student_visa_decisions_2025.csv
+data/prepared/australia/student_visa_decisions_2022-2025.csv
+data/support/australia-preparation-audit.json
 ```
 
 The audit records the filter funnel, source checksum, financial years and months used for each calendar year, row and country counts, sums, output checksums, and validation results. It verifies all 2,046,442 source rows satisfy `grant_total + refused_total = total`, source grant rates reconcile, annual aggregation conserves counts, and the combined table equals the sum of the annual tables.
@@ -257,30 +257,30 @@ The official English UN M49 overview was downloaded from the United Nations Stat
 https://unstats.un.org/unsd/methodology/m49/overview/
 ```
 
-The source page is preserved as `original/reference/un-m49-overview.html`. Because the website's CSV button is generated in the browser rather than exposed as a stable file URL, `scripts/extract_un_m49.py` reproducibly extracts its embedded English table to `original/reference/un-m49.csv`. The extracted table contains 248 unique country-or-area names and M49 codes.
+The source page is preserved as `data/original/reference/un-m49-overview.html`. Because the website's CSV button is generated in the browser rather than exposed as a stable file URL, `scripts/extract_un_m49.py` reproducibly extracts its embedded English table to `data/original/reference/un-m49.csv`. The extracted table contains 248 unique country-or-area names and M49 codes.
 
 ```sh
 python3 scripts/extract_un_m49.py
 python3 scripts/check_country_names.py
 ```
 
-The second script checks each of the four annual tables for each destination. Within every year it first accepts exact English M49 names, then applies a destination-specific reviewed alias and finally a generic reviewed alias from `reference/country_aliases.csv`. Labels resolving to the same M49 name within a year are aggregated and their rates recalculated. The reviewed non-M49 labels Taiwan and Kosovo are retained unchanged with status `non_m49_retained` and a null M49 code. Unknown, aggregate, and unmatched labels are excluded from normalized annual outputs but retained with their year, decision count, and reason in `support/country-name-harmonization.json`.
+The second script checks each of the four annual tables for each destination. Within every year it first accepts exact English M49 names, then applies a destination-specific reviewed alias and finally a generic reviewed alias from `data/reference/country_aliases.csv`. Labels resolving to the same M49 name within a year are aggregated and their rates recalculated. The reviewed non-M49 labels Taiwan and Kosovo are retained unchanged with status `non_m49_retained` and a null M49 code. Unknown, aggregate, and unmatched labels are excluded from normalized annual outputs but retained with their year, decision count, and reason in `data/support/country-name-harmonization.json`.
 
 Only after annual harmonization does the script sum the four normalized annual tables by destination and normalized country name. It recalculates the combined decision rates from the summed counts and verifies that the combined counts equal the annual normalized totals. Thus, the pooled tables are derived from the country-year data used by the temporal analysis rather than normalized independently.
 
 The normalized five-column outputs are:
 
 ```text
-prepared/new-zealand/student_visa_decisions_2022-m49.csv
-prepared/new-zealand/student_visa_decisions_2023-m49.csv
-prepared/new-zealand/student_visa_decisions_2024-m49.csv
-prepared/new-zealand/student_visa_decisions_2025-m49.csv
-prepared/new-zealand/student_visa_decisions_2022-2025-m49.csv
-prepared/australia/student_visa_decisions_2022-m49.csv
-prepared/australia/student_visa_decisions_2023-m49.csv
-prepared/australia/student_visa_decisions_2024-m49.csv
-prepared/australia/student_visa_decisions_2025-m49.csv
-prepared/australia/student_visa_decisions_2022-2025-m49.csv
+data/prepared/new-zealand/student_visa_decisions_2022-m49.csv
+data/prepared/new-zealand/student_visa_decisions_2023-m49.csv
+data/prepared/new-zealand/student_visa_decisions_2024-m49.csv
+data/prepared/new-zealand/student_visa_decisions_2025-m49.csv
+data/prepared/new-zealand/student_visa_decisions_2022-2025-m49.csv
+data/prepared/australia/student_visa_decisions_2022-m49.csv
+data/prepared/australia/student_visa_decisions_2023-m49.csv
+data/prepared/australia/student_visa_decisions_2024-m49.csv
+data/prepared/australia/student_visa_decisions_2025-m49.csv
+data/prepared/australia/student_visa_decisions_2022-2025-m49.csv
 ```
 
 Annual normalization produces 149, 157, 151, and 155 New Zealand rows for 2022--2025, respectively, with no excluded decisions. It produces 164, 167, 162, and 171 Australian rows, excluding 11, 10, 4, and 3 non-country decisions, respectively. Across all years the excluded Australian decisions comprise `Not Specified` (27) and `Refugee` (1).
@@ -299,13 +299,13 @@ Reference checksums for this snapshot are:
 
 | File | SHA-256 |
 | --- | --- |
-| `original/reference/un-m49-overview.html` | `b9048114f6e7f2abda83bf03d4263c9d7cd1bd7230e3d0461025ee7839a7a1fb` |
-| `original/reference/un-m49.csv` | `b0ed5587787b027786005d153c92b6ba87b6fafcfb218b2e7921d323f931f1e7` |
-| `reference/country_aliases.csv` | `232a0852e21333c9da19a9bf77d162d84d2e1ce4387cccfd5368111abb9b5f76` |
+| `data/original/reference/un-m49-overview.html` | `b9048114f6e7f2abda83bf03d4263c9d7cd1bd7230e3d0461025ee7839a7a1fb` |
+| `data/original/reference/un-m49.csv` | `b0ed5587787b027786005d153c92b6ba87b6fafcfb218b2e7921d323f931f1e7` |
+| `data/reference/country_aliases.csv` | `232a0852e21333c9da19a9bf77d162d84d2e1ce4387cccfd5368111abb9b5f76` |
 
 ### 5. Normalize origins
 
-Use `original/reference/un-m49.csv` as the current downloaded UN M49 reference and `reference/country_aliases.csv` as the reviewed alias table.
+Use `data/original/reference/un-m49.csv` as the current downloaded UN M49 reference and `data/reference/country_aliases.csv` as the reviewed alias table.
 
 1. retain the year and original Australian or NZ origin label;
 2. try an exact UN M49 match independently within each annual table;
@@ -330,15 +330,15 @@ python3 -m src.analysis_05_concordance
 python3 -m src.analysis_06_country_differences
 ```
 
-Reusable joined tables are stored under `prepared/comparison/`. Validation and coverage tables are stored under `results/validation/`, while input/output hashes and run summaries are stored under `results/manifests/`. See the README files in those directories for the artifact roles. Statistical result tables should not be mixed with prepared comparison data or validation evidence.
+Reusable joined tables are stored under `data/prepared/comparison/`. Validation and coverage tables are stored under `data/results/validation/`, while input/output hashes and run summaries are stored under `data/results/manifests/`. See the README files in those directories for the artifact roles. Statistical result tables should not be mixed with prepared comparison data or validation evidence.
 
-The concordance outputs are stored under `results/concordance/`: a two-row Pearson/Spearman result table, the complete matched plotting points, and calculation diagnostics. Country-specific outputs are stored under `results/country_tests/`: the authoritative 173-country effect-and-test table, a compact test-family summary, and a separate table that records the fixed forest-plot display rule. These are result artifacts derived from the canonical comparison table; they are not prepared input data.
+The concordance outputs are stored under `data/results/concordance/`: a two-row Pearson/Spearman result table, the complete matched plotting points, and calculation diagnostics. Country-specific outputs are stored under `data/results/country_tests/`: the authoritative 173-country effect-and-test table, a compact test-family summary, and a separate table that records the fixed forest-plot display rule. These are result artifacts derived from the canonical comparison table; they are not prepared input data.
 
-Store country-specific prepared tables under `prepared/australia/` and `prepared/new-zealand/`, then place the aligned table under `prepared/comparison/`.
+Store country-specific prepared tables under `data/prepared/australia/` and `data/prepared/new-zealand/`, then place the aligned table under `data/prepared/comparison/`.
 
 ## Broader pre-filter audit values for the selected release
 
-The Australian values below were calculated before the Higher Education Sector restriction was selected. They apply only the outside-Australia and primary-applicant filters and are retained as broader extraction sanity checks, not as the current prepared outputs or article results. The current sector-specific values are reported above and in `support/australia-preparation-audit.json`.
+The Australian values below were calculated before the Higher Education Sector restriction was selected. They apply only the outside-Australia and primary-applicant filters and are retained as broader extraction sanity checks, not as the current prepared outputs or article results. The current sector-specific values are reported above and in `data/support/australia-preparation-audit.json`.
 
 For Australia after filtering to outside-Australia primary applicants and reconstructing calendar years:
 
@@ -362,13 +362,13 @@ The published `Total` rows report approvals and declines of 32,706 and 7,689 for
 
 ## Provenance and checksums for selected tables
 
-| Extracted file | MD5 |
+| Repository-relative extracted file | MD5 |
 | --- | --- |
-| `australia/student_visa_grant_rates_2005_2026-02-28.csv` | `0c41e436e901a0655b8e84d215be4fe7` |
-| `new-zealand/student_visa_decisions_2022.csv` | `c3e83ecad45390ca33edecf444778f83` |
-| `new-zealand/student_visa_decisions_2023.csv` | `4bcd5fc8559593e2a8505ef3835aa7fa` |
-| `new-zealand/student_visa_decisions_2024.csv` | `2fe33e032f0c681b2652889bb1975312` |
-| `new-zealand/student_visa_decisions_2025.csv` | `053dcfd87182874310ff9b46b41cc0a9` |
-| `zenodo/artifact-metadata/country_aliases.csv` | `4073092ffd1ac8f30742ea091dedbcca` |
-| `zenodo/artifact-metadata/country-schema.json` | `6f6f40bcd8493f286022dad813d75abb` |
-| `zenodo/artifact-metadata/UNSD — Methodology.csv` | `96bbad1f90cea25a1fae6ac268260bd3` |
+| `data/original/australia/student_visa_grant_rates_2005_2026-02-28.csv` | `0c41e436e901a0655b8e84d215be4fe7` |
+| `data/original/new-zealand/student_visa_decisions_2022.csv` | `c3e83ecad45390ca33edecf444778f83` |
+| `data/original/new-zealand/student_visa_decisions_2023.csv` | `4bcd5fc8559593e2a8505ef3835aa7fa` |
+| `data/original/new-zealand/student_visa_decisions_2024.csv` | `2fe33e032f0c681b2652889bb1975312` |
+| `data/original/new-zealand/student_visa_decisions_2025.csv` | `053dcfd87182874310ff9b46b41cc0a9` |
+| `data/original/zenodo/artifact-metadata/country_aliases.csv` | `4073092ffd1ac8f30742ea091dedbcca` |
+| `data/original/zenodo/artifact-metadata/country-schema.json` | `6f6f40bcd8493f286022dad813d75abb` |
+| `data/original/zenodo/artifact-metadata/UNSD — Methodology.csv` | `96bbad1f90cea25a1fae6ac268260bd3` |
