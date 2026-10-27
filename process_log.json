@@ -651,6 +651,67 @@
         "tests/test_generate_article_sensitivity_outputs.py",
         "process_log.json"
       ]
+    },
+    {
+      "id": "030",
+      "date": "2026-10-27",
+      "phase": "introduction_five_research_questions",
+      "status": "empirically_verified",
+      "summary": "Restored five explicit research questions in the Introduction so that it matches the Methods roadmap and Results sequence.",
+      "changes": [
+        "Added the missing descriptive question about decision scale, aggregate approval rates, and country-level distributions.",
+        "Stated the matched-country, concordance, country-specific, and origin-adjusted questions separately and in the same order used in Methods and Results.",
+        "Kept exclusion of small-denominator origins as a separate sensitivity analysis rather than treating it as a sixth research question."
+      ],
+      "verification": [
+        "Confirmed a one-to-one mapping between the five Introduction questions, Methods Sections 4.4--4.8, and Results Sections 5.2--5.6.",
+        "Rebuilt the 31-page manuscript successfully and confirmed that all five questions appear in the rendered Introduction.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, float warnings, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "031",
+      "date": "2026-10-27",
+      "phase": "introduction_question_paragraph",
+      "status": "empirically_verified",
+      "summary": "Separated the five research questions into their own Introduction paragraph.",
+      "changes": [
+        "Inserted a paragraph break before The analysis addresses five research questions."
+      ],
+      "verification": [
+        "Rebuilt the 31-page manuscript successfully and confirmed the paragraph break in the rendered Introduction.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, float warnings, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "032",
+      "date": "2026-10-27",
+      "phase": "methods_country_year_table_descriptions",
+      "status": "empirically_verified",
+      "summary": "Completed the short descriptions of the four analysis-ready comparison tables in the computational workflow.",
+      "changes": [
+        "Added descriptions of the country-year long table and matched country-year table after the existing pooled-table descriptions."
+      ],
+      "verification": [
+        "Confirmed that the four prose descriptions correspond to the four canonical outputs documented in data/prepared/comparison/README.md.",
+        "Rebuilt the 31-page manuscript successfully and confirmed that the added descriptions appear in the rendered Methods section.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, float warnings, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
     }
   ]
 }
