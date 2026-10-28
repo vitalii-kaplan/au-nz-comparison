@@ -792,6 +792,30 @@
         "data/results/manifests/",
         "process_log.json"
       ]
+    },
+    {
+      "id": "036",
+      "date": "2026-10-28",
+      "phase": "preprint_doi_metadata",
+      "status": "empirically_verified",
+      "summary": "Added the reserved Zenodo preprint DOI 10.5281/zenodo.23739706 to the active manuscript and synchronized the repository citation guidance.",
+      "changes": [
+        "Printed the preprint DOI beneath the author metadata on the manuscript title page without adding a self-citation to the bibliography or article prose.",
+        "Added the reserved DOI and its pre-publication resolution status to the root README and article README.",
+        "Replaced the obsolete root README statement that stable preprint metadata were unavailable."
+      ],
+      "verification": [
+        "Rebuilt the active manuscript successfully and confirmed the DOI appears in the rendered PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, float errors, JSON errors, or whitespace errors.",
+        "Checked the DOI before the edit; it returned HTTP 404 because the reserved Zenodo record had not yet been published."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "article/README.md",
+        "README.md",
+        "process_log.json"
+      ]
     }
   ]
 }

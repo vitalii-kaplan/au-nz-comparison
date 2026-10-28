@@ -18,6 +18,8 @@ The intended journal-publication title, subject to acceptance and venue requirem
 
 The LaTeX manuscript currently uses the preprint title. Replace it only when preparing an accepted journal version or when the selected journal requires the shorter title.
 
+The reserved Zenodo preprint DOI is [10.5281/zenodo.23739706](https://doi.org/10.5281/zenodo.23739706). It is printed on the manuscript title page and will resolve publicly after the Zenodo record is published.
+
 Use *decision outcomes* or *decision approval rates*, not application approval rates. The common denominator is grants or approvals plus refusals or declines; it is not lodgements or all applications.
 
 ## Central question and contribution

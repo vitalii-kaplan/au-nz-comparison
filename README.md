@@ -4,7 +4,7 @@
 
 This study compares student visa decision approval rates using aggregate public records from Australia and New Zealand for 2022–2025. We calculate each rate as approvals divided by approvals plus refusals and compare 173 published applicant origins observed in both destinations. The mean Australian-minus-New Zealand difference was 16.3 percentage points (95% confidence interval 12.7–19.9). Approval rates were positively associated across destinations (Pearson $r = 0.629$), which is consistent with applicant-origin context contributing to the observed pattern. However, 56 country-specific differences remained significant after Benjamini–Hochberg adjustment, and the pooled origin-adjusted model produced an Australian-minus-New Zealand contrast of 10.9 points (95% confidence interval 6.6–15.2). The positive average direction persisted at every pre-specified minimum-decision threshold, although country-specific differences varied in both size and direction. These findings show that the student's origin country is relevant but does not fully explain recorded approval rates. Records for the same published origin country can have different rates in Australia and New Zealand as immigration destinations. Explanations must therefore consider the pair formed by the student's origin country and the immigration destination country. The estimates are aggregate associations and do not identify a causal destination effect or an individual applicant's probability of approval.
 
-The manuscript is available as [article/article.pdf](article/article.pdf), with its LaTeX source in [article/article.tex](article/article.tex).
+The manuscript is available as [article/article.pdf](article/article.pdf), with its LaTeX source in [article/article.tex](article/article.tex). Its reserved Zenodo preprint DOI is [10.5281/zenodo.23739706](https://doi.org/10.5281/zenodo.23739706); the DOI will resolve publicly after the Zenodo record is published.
 
 ## Study design
 
@@ -102,4 +102,4 @@ Generated prepared and result CSV files are excluded from Git because they are r
 
 The repository includes an [MIT License](LICENSE) for its software and associated documentation. The upstream Zenodo data artifact is distributed under CC BY 4.0; consult its record for attribution requirements. If the manuscript requires separate publication terms, state them before its formal release.
 
-A citation for the comparison article will be added when stable publication or preprint metadata are available. Until then, cite the two Zenodo records above when using their data.
+The comparison article uses the reserved Zenodo preprint DOI [10.5281/zenodo.23739706](https://doi.org/10.5281/zenodo.23739706). Cite the separate data paper and data artifact above when using their data.
