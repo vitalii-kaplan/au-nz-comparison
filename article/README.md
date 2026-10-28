@@ -44,7 +44,6 @@ The manuscript includes:
 
 The main text uses these generated artifacts from verified results:
 
-- `tables/dataset_scale_and_coverage.tex`;
 - `tables/comparability_coverage.tex`;
 - `tables/descriptive_comparison.tex`;
 - `tables/matched_country_comparison.tex`;
@@ -52,8 +51,6 @@ The main text uses these generated artifacts from verified results:
 - a selected form of `tables/country_specific_results.tex`;
 - `tables/pooled_binomial_regression_results.tex`;
 - `tables/sensitivity_analysis.tex`;
-- `figures/data_coverage_overview.tex`;
-- `figures/comparability_audit.tex`;
 - `figures/decision_volume_log10_bins.tex`;
 - `figures/descriptive_ecdfs.tex`;
 - `figures/matched_difference_distribution.tex`;

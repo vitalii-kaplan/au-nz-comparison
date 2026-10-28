@@ -8,12 +8,11 @@ The current executable preparation regression test is:
 
 The current executable article-production test is:
 
-- `test_generate_article_validation_outputs.py`, which verifies the scale and coverage values read from the validation artifacts, checks the generated LaTeX table and PGFPlots source, and confirms that a failed blocking check prevents publication-output generation; and
 - `test_generate_article_analysis_outputs.py`, which verifies the Section 3 and 4 manifests, result dimensions, reported values, and generated publication tables and figures.
 - `test_generate_article_concordance_country_outputs.py`, which verifies the Section 5 and 6 manifests and the generated concordance table, equal-axis scatterplot, selected-country table, and 20-country forest plot.
 - `test_generate_article_model_outputs.py`, which verifies the pooled origin-adjusted model table and standardized-probability figure used by the article.
 - `test_generate_article_sensitivity_outputs.py`, which verifies the minimum-denominator sensitivity tables and figure used by the article.
-- `test_generate_article_comparability_outputs.py`, which verifies the Section 11 manifest and generated overlap table, gate-decision table, and comparability figure.
+- `test_generate_article_comparability_outputs.py`, which verifies the Section 11 manifest and generated overlap table.
 
 The current executable research-module tests are:
 
@@ -29,7 +28,7 @@ The current executable research-module tests are:
 - `test_analysis_10_sensitivity.py`, covering seeded intervals, pre-specified threshold populations, baseline concordance reproduction, model comparison, and stability flags; and
 - `test_analysis_11_comparability.py`, covering matched pooled and annual eligibility, pooled and annual audit summaries, and the prohibition on unsupported zero assignment.
 - `test_analysis_12_reproducibility.py`, covering manifest and artifact-hash consolidation, publication-artifact registration, software-version records, and the zero-issue audit;
-- `test_analysis_13_validate_outputs.py`, covering the required nine-table and nine-figure inventory, schemas, unique keys, hash registration, and the documented optional-output skip;
+- `test_analysis_13_validate_outputs.py`, covering the required nine-table and seven-figure inventory, schemas, unique keys, hash registration, and the documented optional-output skip;
 - `test_analysis_14_interpretation_checks.py`, covering result metadata boundaries and rejection of unsupported machine-generated claims; and
 - `test_analysis_15_run_pipeline.py`, covering dependency order, comparability-based skips, stage-status records, and immediate failure propagation.
 

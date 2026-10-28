@@ -712,6 +712,86 @@
         "article/article.pdf",
         "process_log.json"
       ]
+    },
+    {
+      "id": "033",
+      "date": "2026-10-27",
+      "phase": "methods_comparability_wording",
+      "status": "empirically_verified",
+      "summary": "Simplified the opening sentence of the Missingness and Comparability Gate subsection.",
+      "changes": [
+        "Replaced abstract wording about applying a gate to establish eligibility with a direct explanation of deciding which records could be included and how remaining records were handled."
+      ],
+      "verification": [
+        "Rebuilt the 31-page manuscript successfully and confirmed that the revised sentence appears in the rendered Methods section.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, float warnings, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "034",
+      "date": "2026-10-27",
+      "phase": "results_validation_scale_separation",
+      "status": "empirically_verified",
+      "summary": "Separated validation and comparability coverage in Results Section 5.1 from destination scale and country-level distributions in Section 5.2.",
+      "changes": [
+        "Kept validation status and matched, Australia-only, and New Zealand-only origin coverage in Section 5.1.",
+        "Moved the destination decision totals, represented-origin counts, denominator clarification, and aggregate approval rates into Section 5.2.",
+        "Removed the redundant dataset-scale table and coverage figure from the manuscript, publication generators, pipeline inventory, documentation, and tests.",
+        "Updated the reproducibility and minimum-output contracts from 17 to 15 publication artifacts."
+      ],
+      "verification": [
+        "Ran the complete research and publication pipeline successfully with five publication generators.",
+        "Passed all 32 tests, including the updated 65-artifact reproducibility inventory and 18-item minimum-output checklist.",
+        "Rebuilt the 29-page manuscript and confirmed the revised Section 5.1 and Section 5.2 content in the rendered PDF.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, float errors, stale artifact references, JSON errors, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "article/README.md",
+        "scripts/README.md",
+        "src/README.md",
+        "tests/README.md",
+        "data/results/manifests/",
+        "process_log.json"
+      ]
+    },
+    {
+      "id": "035",
+      "date": "2026-10-28",
+      "phase": "methods_results_redundancy_reduction",
+      "status": "empirically_verified",
+      "summary": "Removed selected repeated explanations from Methods, Results, and the Sensitivity Analysis while retaining observed procedural counts in Methods and both decision-volume visual summaries as requested.",
+      "changes": [
+        "Kept comparison-table construction in Methods Section 4.2 and consolidated missingness, destination-only origin, and zero-handling rules in Section 4.3.",
+        "Removed the comparability figure because Table 3 already reports the pooled and annual coverage values.",
+        "Kept the numerical concordance findings in the opening of Results Section 5.4 and the association-versus-agreement interpretation in its closing paragraph.",
+        "Removed repeated direction counts from Results Section 5.5 and the repeated opening summary from the Sensitivity Analysis.",
+        "Updated the publication generator, artifact inventory, documentation, and tests to seven tables and seven figures."
+      ],
+      "verification": [
+        "Ran the complete research and publication pipeline successfully with 64 registered artifacts, including 14 publication artifacts.",
+        "Passed all 32 tests, including the updated 17-item minimum-output checklist.",
+        "Rebuilt the 28-page manuscript and checked the revised sections in rendered text.",
+        "Confirmed no undefined citations, undefined references, multiply defined labels, overfull boxes, float errors, stale comparability-figure references, JSON errors, or whitespace errors."
+      ],
+      "artifacts": [
+        "article/article.tex",
+        "article/article.pdf",
+        "article/README.md",
+        "scripts/generate_article_comparability_outputs.py",
+        "scripts/README.md",
+        "src/analysis_13_validate_outputs.py",
+        "src/README.md",
+        "tests/",
+        "data/results/manifests/",
+        "process_log.json"
+      ]
     }
   ]
 }

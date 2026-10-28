@@ -25,19 +25,17 @@ Use `--skip-preparation` only when the prepared AU/NZ tables already exist and a
 
 The main pipeline runs these generators after the statistical results pass and before the reproducibility manifest is consolidated:
 
-- `generate_article_validation_outputs.py` produces the dataset-scale table and coverage figure.
-- `generate_article_comparability_outputs.py` produces the comparability table and audit figure.
+- `generate_article_comparability_outputs.py` produces the comparability table.
 - `generate_article_analysis_outputs.py` produces the descriptive and matched-origin tables and figures.
 - `generate_article_concordance_country_outputs.py` produces the concordance and country-specific tables and figures.
 - `generate_article_model_outputs.py` produces the pooled origin-adjusted model table and probability figure.
 - `generate_article_sensitivity_outputs.py` produces the minimum-denominator sensitivity tables and figure.
 
-These six generators produce exactly the eight tables and nine figures imported by the manuscript. They verify the relevant analysis manifests and output hashes before writing publication artifacts.
+These five generators produce exactly the seven tables and seven figures imported by the manuscript. They verify the relevant analysis manifests and output hashes before writing publication artifacts.
 
 To regenerate only publication artifacts after a successful analysis run:
 
 ```sh
-python3 scripts/generate_article_validation_outputs.py
 python3 scripts/generate_article_comparability_outputs.py
 python3 scripts/generate_article_analysis_outputs.py
 python3 scripts/generate_article_concordance_country_outputs.py

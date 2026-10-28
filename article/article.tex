@@ -143,13 +143,13 @@ The contract distinguishes three analytical perspectives. A decision-weighted su
 
 The pooled and annual harmonised tables were validated before comparison tables were created. This validation assesses whether the two sources are internally consistent and whether they provide a defensible common population for comparison. The checks covered the required schema, unique and sorted keys, non-negative integer counts, the identity $A+D=N$, recalculation of approval rates, rates between zero and one, complete coverage of 2022--2025, approved country-name rules, absence of excluded non-country labels, and exact reconciliation between pooled counts and the sums of annual counts.
 
-Four analysis-ready tables were then constructed. The pooled long table contains one row for each represented destination--country pair. It preserves the full coverage of each destination and supports the questions about scale, distributions, applicant-origin composition, and destination-level modelling. It also avoids treating a country absent from one source as if it had zero decisions. The pooled matched table contains one row for each country represented in both destinations, with separate AU and NZ counts and rates and the AU-minus-NZ rate difference. This table supports the like-for-like questions about paired differences, cross-destination concordance, and country-specific effects. The country-year long table contains one row for each represented destination--country--year combination and supports annual coverage and validation. The matched country-year table contains one row for each country and year observed in both destinations and supports annual comparability checks.
+Four analysis-ready tables were then constructed. The pooled long table contains one row for each represented destination--country pair. It preserves the full coverage of each destination and supports the questions about scale, distributions, applicant-origin composition, and destination-level modelling. The pooled matched table contains one row for each country represented in both destinations, with separate AU and NZ counts and rates and the AU-minus-NZ rate difference. This table supports the like-for-like questions about paired differences, cross-destination concordance, and country-specific effects. The country-year long table contains one row for each represented destination--country--year combination and supports annual coverage and validation. The matched country-year table contains one row for each country and year observed in both destinations and supports annual comparability checks.
 
-Countries observed in only one destination remain available for destination-specific summaries but are excluded from paired comparisons. Rows with fewer than 20 or 50 decisions are retained and flagged so that later analyses can test whether conclusions depend on sparse observations. The public repository documents the canonical comparison tables in \path{data/prepared/comparison/README.md} and provides validation and run manifests under \path{data/results/manifests/} \cite{Kaplan2026AUNZComparisonRepository}.
+Rows with fewer than 20 or 50 decisions are retained and flagged so that later analyses can test whether conclusions depend on sparse observations. The public repository documents the canonical comparison tables in \path{data/prepared/comparison/README.md} and provides validation and run manifests under \path{data/results/manifests/} \cite{Kaplan2026AUNZComparisonRepository}.
 
 \subsection{Missingness and Comparability Gate}
 
-After construction and validation of the comparison tables, the comparability gate was applied to establish eligibility and handling requirements for the subsequent paired and model-based analyses. Every destination--origin record in the pooled and annual unions was classified as observed with a positive decision total, absent from that destination table, a reviewed non-M49 exception, or an excluded non-country label. The implementation also defined explicit states for an observed zero total, incompatible definition, suppressed value, and unresolved status. None of those states was silently converted into an analytical observation.
+After constructing and validating the comparison tables, we determined which records could be included in the paired and model-based analyses and how to handle the remaining records. Every destination--origin record in the pooled and annual unions was classified as observed with a positive decision total, absent from that destination table, a reviewed non-M49 exception, or an excluded non-country label. The implementation also defined explicit states for an observed zero total, incompatible definition, suppressed value, and unresolved status. None of those states was silently converted into an analytical observation.
 
 An origin was included in a paired population only when it had a positive observed decision total in both destinations at the relevant pooled or annual level. Destination-only origins remained in destination-specific summaries. An absent country was not interpreted as having zero decisions because the source semantics do not establish that implication. The gate assessed the eligibility and required handling of pooled paired analyses and the pooled country-fixed-effect model.
 
@@ -201,37 +201,17 @@ Finally, we checked that the reported analyses were reproducible, complete, and 
 
 \subsection{Validation and Coverage}
 
-All pre-specified data-validation checks passed, with no unresolved errors in the data structure, counts, rates, years, country names, or reconciliation of annual and pooled totals. Table~\ref{tab:validated-scale-coverage} summarises the resulting scale and coverage. Australia had 737,424 recorded decisions across 192 origins, compared with 148,746 decisions across 179 origins in New Zealand. These are two-outcome decision totals, not application or lodgement volumes. Of 198 origins represented in either destination, 173 occurred in both, 19 occurred only in Australia, and 6 occurred only in New Zealand.
-
-\input{tables/dataset_scale_and_coverage}
-
-Figure~\ref{fig:data-coverage-overview} shows the much larger Australian decision volume and the stable annual matched-country population. Between 139 and 144 origins were observed in both destinations in each year. The volume comparison describes dataset scale, not approval rates.
-
-\begin{figure}
-\centering
-\input{figures/data_coverage_overview}
-\caption{Scale and annual overlap of the validated comparison data. Panel (a) reports recorded two-outcome decisions pooled across 2022--2025. Panel (b) reports harmonised origin countries represented in both destinations in each calendar year.}
-\label{fig:data-coverage-overview}
-\end{figure}
+All pre-specified data-validation checks passed, with no unresolved errors in the data structure, counts, rates, years, country names, or reconciliation of annual and pooled totals. Of 198 origins represented in either destination, 173 occurred in both, 19 occurred only in Australia, and 6 occurred only in New Zealand.
 
 Table~\ref{tab:comparability-coverage} gives the pooled and annual overlap. The matched share was 87.4\% in the pooled data and ranged from 78.0\% to 79.9\% annually.
 
 \input{tables/comparability_coverage}
 
-Figure~\ref{fig:comparability-audit} separates the matched and destination-specific origins. The unmatched origins show why absence from one dataset cannot be interpreted as zero decisions.
-
-\begin{figure}
-\centering
-\input{figures/comparability_audit}
-\caption{Comparability audit for pooled and annual origin-country coverage. Panel (a) shows the share of origins in each observed union that occurred in both destinations. Panel (b) decomposes unmatched origins by the destination in which they were observed. Absence from the other destination was not treated as a zero count.}
-\label{fig:comparability-audit}
-\end{figure}
-
 The subsequent paired analyses and pooled country-fixed-effect model therefore use the 173 origins observed in both destinations. Destination-only origins remain available for destination-specific descriptions but are not assigned zero decisions in the other destination.
 
 \subsection{Destination Scale and Country-Level Distributions}
 
-The first research question asks how the scale and approval structure differ between the two destinations. As shown in Table~\ref{tab:descriptive-comparison}, the decision-weighted aggregate approval rate was 86.7\% for Australia and 81.3\% for New Zealand. The Australian dataset also contained almost five times as many recorded decisions. These aggregate rates describe different sets and volumes of origin countries, so they do not establish that one destination is generally easier for an otherwise comparable applicant.
+The first research question asks how the scale and approval structure differ between the two destinations. As shown in Table~\ref{tab:descriptive-comparison}, Australia had 737,424 recorded decisions across 192 origins, compared with 148,746 decisions across 179 origins in New Zealand. The Australian dataset therefore contained almost five times as many recorded decisions. These are two-outcome decision totals, not application or lodgement volumes. The decision-weighted aggregate approval rate was 86.7\% for Australia and 81.3\% for New Zealand. These aggregate rates describe different sets and volumes of origin countries, so they do not establish that one destination is generally easier for an otherwise comparable applicant.
 
 \input{tables/descriptive_comparison}
 
@@ -274,7 +254,7 @@ The ordered differences in Figure~\ref{fig:matched-difference-distribution} also
 
 \subsection{Cross-Destination Concordance}
 
-The third research question asks whether countries with higher rates in one destination also tend to have higher rates in the other. Both coefficients indicated a positive association (Table~\ref{tab:approval-rate-concordance}). Pearson correlation was 0.629 (95\% CI 0.529 to 0.711, $p<0.001$), while Spearman rank correlation was 0.472 (bootstrap 95\% CI 0.320 to 0.609, $p<0.001$). Thus, the broad country patterns moved together, but the weaker rank correlation and the dispersion in Figure~\ref{fig:approval-rate-concordance} show that country positions were not identical.
+The third research question asks whether countries with higher rates in one destination also tend to have higher rates in the other. Both coefficients indicated a positive association (Table~\ref{tab:approval-rate-concordance}). Pearson correlation was 0.629 (95\% CI 0.529 to 0.711, $p<0.001$), while Spearman rank correlation was 0.472 (bootstrap 95\% CI 0.320 to 0.609, $p<0.001$).
 
 \input{tables/approval_rate_concordance}
 
@@ -289,7 +269,7 @@ These coefficients do not imply agreement. Many observations lie above or below 
 
 \subsection{Country-Specific Differences}
 
-The fourth research question asks which individual origins show evidence of a destination difference. Of the 173 country comparisons, 60 met the expected-count rule for Pearson's chi-square test and 113 used Fisher's exact test. After Benjamini--Hochberg correction across all 173 tests, 56 remained significant at the 0.05 false-discovery-rate threshold. The direction counts were unchanged from the paired analysis: Australia had the higher observed rate for 122 countries, New Zealand for 32, and 19 were equal. Zero cells required the declared correction for supplementary risk-ratio and odds-ratio estimates in 65 comparisons.
+The fourth research question asks which individual origins show evidence of a destination difference. Of the 173 country comparisons, 60 met the expected-count rule for Pearson's chi-square test and 113 used Fisher's exact test. After Benjamini--Hochberg correction across all 173 tests, 56 remained significant at the 0.05 false-discovery-rate threshold. Zero cells required the declared correction for supplementary risk-ratio and odds-ratio estimates in 65 comparisons.
 
 Table~\ref{tab:country-specific-results} gives the ten largest absolute differences within the forest-plot population. All ten displayed differences were positive and remained significant after adjustment. The largest displayed difference was 48.4 percentage points for Türkiye, followed by 46.8 points for Zimbabwe and 41.1 points for Iran (Islamic Republic of). These are country-level aggregate comparisons and must not be read as causal effects on otherwise identical individual applicants.
 
@@ -322,8 +302,6 @@ Figure~\ref{fig:pooled-standardized-probabilities} shows the standardised destin
 The pooled model was computationally stable and was retained for estimating the average origin-adjusted association between destination and approval. It converged in six iterations, produced no fitting warnings, had finite coefficients and standard errors, and had no fitted probabilities beyond the declared extreme threshold. This stability does not mean that the model captured the country-specific variation well. The Pearson dispersion ratio was 22.66, far above the value of about 1 expected when ordinary binomial variation adequately describes the data \cite{Williams1982}. The largest Cook's distances \cite{Pregibon1981} occurred for the Australian observations for Bangladesh (42.70), Nepal (34.36), and China (17.88). These observations were retained. We therefore interpret the destination coefficient as an average association while reporting the substantial unexplained variation without applying a dispersion adjustment. The cluster-robust interval addresses within-origin dependence, but the estimate remains a conditional observational association and not a causal effect of destination choice.
 
 \section{Sensitivity Analysis}
-
-We checked whether the main findings changed when origins with few recorded decisions were excluded. At minimum-decision thresholds of 20, 50, and 100 in each destination, the Australian-minus-New Zealand differences remained positive and statistically significant. Approval-rate concordance became stronger after origins with small decision totals were removed.
 
 The denominator restrictions reduced the matched population from 173 origins to 91 at a minimum of 20 decisions in each destination, 66 at a minimum of 50, and 54 at a minimum of 100 (Table~\ref{tab:sensitivity-paired}). The mean Australian-minus-New Zealand difference decreased from 16.3 percentage points for all matched origins to 11.9 points at the 20-decision threshold and 10.6 points at the 50-decision threshold, before increasing slightly to 11.3 points at the 100-decision threshold. The corresponding median differences were 9.4, 7.1, 5.0, and 5.0 points. Every mean and median interval remained above zero, and both the paired $t$ and Wilcoxon signed-rank tests remained significant at each threshold.
 

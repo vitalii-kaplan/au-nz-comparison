@@ -23,8 +23,8 @@ class OutputValidationTest(unittest.TestCase):
             )
             with outputs["checklist"].open(newline="", encoding="utf-8") as handle:
                 checks = list(csv.DictReader(handle))
-            self.assertEqual(len(checks), 19)
-            self.assertEqual(sum(row["status"] == "passed" for row in checks), 18)
+            self.assertEqual(len(checks), 17)
+            self.assertEqual(sum(row["status"] == "passed" for row in checks), 16)
             self.assertEqual(sum(row["status"] == "skipped" for row in checks), 1)
             with outputs["result_registry"].open(newline="", encoding="utf-8") as handle:
                 registry = list(csv.DictReader(handle))

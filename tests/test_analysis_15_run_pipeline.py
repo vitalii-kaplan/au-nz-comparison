@@ -37,7 +37,6 @@ class PipelineRunnerTest(unittest.TestCase):
             self.assertEqual(
                 publication_modules,
                 [
-                    "scripts.generate_article_validation_outputs",
                     "scripts.generate_article_comparability_outputs",
                     "scripts.generate_article_analysis_outputs",
                     "scripts.generate_article_concordance_country_outputs",
@@ -46,7 +45,7 @@ class PipelineRunnerTest(unittest.TestCase):
                 ],
             )
             self.assertLess(
-                [step for step, _ in STAGES].index("P06"),
+                [step for step, _ in STAGES].index("P05"),
                 [step for step, _ in STAGES].index("12"),
             )
 

@@ -1,23 +1,23 @@
 {
   "module": "src.analysis_13_validate_outputs",
   "status": "passed",
-  "analysis_timestamp_utc": "2026-10-27T08:52:35+00:00",
+  "analysis_timestamp_utc": "2026-10-28T09:23:20+00:00",
   "inputs": [
     {
       "path": "data/results/manifests/12_reproducibility.json",
-      "sha256": "9964ed384d54e2206372579c294b1590b442f4d036b5f461316119d9b4f99f41"
+      "sha256": "cbeab5daf7571dddfc314635147a4ed03cae2ca6862d970593875e60ea44f7d1"
     },
     {
       "path": "data/results/manifests/artifact_manifest.csv",
-      "sha256": "3deef7d9c726c1af6d7fe656b868be37d65c1d64c51cfbec8e3766533edfa406"
+      "sha256": "837bd9dac08ec45ebca2ee2aa02dee4b3c3e303e727e223b4de405609d943563"
     }
   ],
   "outputs": [
     {
       "name": "checklist",
       "path": "data/results/manifests/minimum_output_checklist.csv",
-      "sha256": "01c708a948eca52aa75b230d4b6d74c22c7db458acb01a3ca4ddc07604d5324b",
-      "rows": 19
+      "sha256": "dae50c82853961fa22451054e4cdfb4654d6d3a5ba1fe5bb1d4acc88e15f89db",
+      "rows": 17
     },
     {
       "name": "result_registry",
@@ -27,7 +27,7 @@
     }
   ],
   "summary": {
-    "required_outputs_passed": 18,
+    "required_outputs_passed": 16,
     "optional_outputs_skipped": 1,
     "failures": 0
   }

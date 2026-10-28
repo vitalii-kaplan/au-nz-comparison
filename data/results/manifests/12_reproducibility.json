@@ -1,59 +1,59 @@
 {
   "module": "src.analysis_12_reproducibility",
   "status": "passed",
-  "analysis_timestamp_utc": "2026-10-27T08:52:35+00:00",
+  "analysis_timestamp_utc": "2026-10-28T09:23:19+00:00",
   "inputs": [
     {
       "path": "data/results/manifests/01_analysis_contract.json",
-      "sha256": "29e18c7c252d6758af546c1827b8900bd5e724c2ec7588c696d767e462062c85"
+      "sha256": "9617546b52494b4b7bd80eb5348bcc6231fe0bde0239bafc9a82a55b670c579e"
     },
     {
       "path": "data/results/manifests/02_data_validation_and_tables.json",
-      "sha256": "ed21542ce12cafde5292ef34b329119407a2f79ebeeed181cc7de409cbcde8fe"
+      "sha256": "e64fedc2735d35bbf9bfa4a8d71b9c2cb99a028c5c1c6eca2d0913843943957d"
     },
     {
       "path": "data/results/manifests/11_comparability.json",
-      "sha256": "554eeb8cd1d59af2a0e7bdc933961c6a1dc02db67d1a518fd95dd9373dbb7445"
+      "sha256": "1b1aa87d551cec266eb31a37660e90829f9a58681b065d4612037b0d7e3840c8"
     },
     {
       "path": "data/results/manifests/03_descriptive.json",
-      "sha256": "a132a63efaaca5d30af04d72727dc56e97c7ec1de7f851a17e61546a2b2c2ec8"
+      "sha256": "c1c2c1537ea91472f5da09026a2ac24e6cb60c51d23be37cea8893c73e43d104"
     },
     {
       "path": "data/results/manifests/04_matched_comparison.json",
-      "sha256": "ecae14c248343232092cb85c2c34947d7f18ed77a7e7b60ad2664bbd3fd3b750"
+      "sha256": "c921a602161de79482bbe04854e4c287b67d5e28fcc72f1ee51cd2b046a77216"
     },
     {
       "path": "data/results/manifests/05_concordance.json",
-      "sha256": "68c58dc081d3d61c0b179592a10517dfd6b633bf8bfa8f0d6decab9752911c37"
+      "sha256": "0326cb9f04ec735fcb42589cf84a6039ce4aee053931e6e3efc3b5264a5164d4"
     },
     {
       "path": "data/results/manifests/06_country_differences.json",
-      "sha256": "a13511e575125da1b0866e8dd69f34a96ff47dcc3e09d988a60553f27476aba7"
+      "sha256": "204a17a46a374cbee95f64e10390ceee0e1d8a0715813ada87edf22853b4bac7"
     },
     {
       "path": "data/results/manifests/07_binomial_regression.json",
-      "sha256": "dc3f1b842daa2d57a21f0dd06342f1e298d8a212fd6289c34b3b4d6c643ed313"
+      "sha256": "e2bbec3b42ebb598d851dec078891996f1e18c0c050f0f7e81cd976b59c915dd"
     },
     {
       "path": "data/results/manifests/08_origin_composition.json",
-      "sha256": "a96ebfdbd0e625653be0431a3aa4c71e816e6e54169bbc2f933e44fe4c0372ea"
+      "sha256": "923a00b4eb13f76c1a5a893f0890da5ada7f1cd7c66279203eb7f472c1db4fc9"
     },
     {
       "path": "data/results/manifests/09_temporal.json",
-      "sha256": "b9c7fefc186511192465108d0f2d4fdb2350c2aa36c8667e399fbde344e4f371"
+      "sha256": "2f430e150e69df4da36a923d5f608e13599aae38b8b8e34756018bf842717bd3"
     },
     {
       "path": "data/results/manifests/10_sensitivity.json",
-      "sha256": "ea7d89617cdccc03f0ab9a3c68fda174d999f98be3b726a7bfd783cee4a9a2a6"
+      "sha256": "d5a6b11bd1f939c14c457ecaa4300a15379b697d948f98564d6e99e1e4288b51"
     }
   ],
   "outputs": [
     {
       "name": "artifact_manifest",
       "path": "data/results/manifests/artifact_manifest.csv",
-      "sha256": "3deef7d9c726c1af6d7fe656b868be37d65c1d64c51cfbec8e3766533edfa406",
-      "rows": 67
+      "sha256": "837bd9dac08ec45ebca2ee2aa02dee4b3c3e303e727e223b4de405609d943563",
+      "rows": 64
     },
     {
       "name": "software_versions",
@@ -64,7 +64,7 @@
     {
       "name": "pipeline_run",
       "path": "data/results/manifests/pipeline_run.json",
-      "sha256": "95e9a5e099bf4808428765e2b610904f1597e087306c057b3c86cd7162cc8d80",
+      "sha256": "132ce922d5395e39d0cbb9c65f6f8c553d3b088702ea29183b7c6f1c37eae098",
       "rows": ""
     },
     {
@@ -76,7 +76,7 @@
   ],
   "summary": {
     "source_manifests": 11,
-    "registered_artifacts": 67,
+    "registered_artifacts": 64,
     "reproducibility_issues": 0
   }
 }

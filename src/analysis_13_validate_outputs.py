@@ -33,8 +33,6 @@ TABLE_REQUIREMENTS = [
     ("sensitivity_summary", "Sensitivity-analysis summary", "data/results/robustness/sensitivity_analysis_summary.csv", {"method", "threshold_min_decisions_each", "effect_estimate", "direction"}, ("method", "threshold_min_decisions_each")),
 ]
 FIGURE_REQUIREMENTS = [
-    ("data_coverage", "Dataset scale and coverage", "article/figures/data_coverage_overview.tex"),
-    ("comparability_audit", "Pooled and annual comparability audit", "article/figures/comparability_audit.tex"),
     ("decision_volume_distribution", "AU/NZ decision-volume distributions", "article/figures/decision_volume_log10_bins.tex"),
     ("approval_rate_distribution", "AU/NZ approval-rate distributions", "article/figures/descriptive_ecdfs.tex"),
     ("paired_difference_distribution", "Paired-difference distribution", "article/figures/matched_difference_distribution.tex"),

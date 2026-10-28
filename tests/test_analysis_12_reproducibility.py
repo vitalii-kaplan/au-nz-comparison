@@ -27,14 +27,14 @@ class ReproducibilityTest(unittest.TestCase):
             )
             with outputs["artifact_manifest"].open(newline="", encoding="utf-8") as handle:
                 artifacts = list(csv.DictReader(handle))
-            self.assertGreaterEqual(len(artifacts), 67)
+            self.assertGreaterEqual(len(artifacts), 64)
             self.assertTrue(all(row["status"] == "verified" for row in artifacts))
             self.assertEqual(
                 sum(row["artifact_type"].startswith("publication_") for row in artifacts),
-                17,
+                14,
             )
             self.assertIn("data/results/models/binomial_model_coefficients.csv", {row["path"] for row in artifacts})
-            self.assertIn("article/figures/comparability_audit.tex", {row["path"] for row in artifacts})
+            self.assertIn("article/tables/comparability_coverage.tex", {row["path"] for row in artifacts})
             self.assertEqual(outputs["reproducibility_issues"].read_text(encoding="utf-8").count("\n"), 1)
             self.assertIn("Rscript", outputs["software_versions"].read_text(encoding="utf-8"))
 

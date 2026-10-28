@@ -356,16 +356,16 @@ Although numbered after Section 10 to match the methods document, this script is
 
 **Status:** Implemented and tested on 28 September 2026.
 
-**Purpose:** Provide the single analysis-and-publication pipeline entry point and implement the dependency order. It calls analysis modules and the six article publication generators through explicit module entry points, stops on a failed validation gate, avoids hidden in-process state, and records start/end status for each stage. Source preparation remains a separate prerequisite and is orchestrated by `scripts/reproduce_article.py`.
+**Purpose:** Provide the single analysis-and-publication pipeline entry point and implement the dependency order. It calls analysis modules and the five article publication generators through explicit module entry points, stops on a failed validation gate, avoids hidden in-process state, and records start/end status for each stage. Source preparation remains a separate prerequisite and is orchestrated by `scripts/reproduce_article.py`.
 
 **Execution order:**
 
 ```text
 01 -> 02 -> 11 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 -> 09 -> 10
-   -> P01 -> P02 -> P03 -> P04 -> P05 -> P06 -> 12 -> 13 -> 14
+   -> P01 -> P02 -> P03 -> P04 -> P05 -> 12 -> 13 -> 14
 ```
 
-`P01`--`P06` regenerate exactly the eight tables and nine figures imported by `article/article.tex`. They run before Step 12 so the consolidated artifact manifest records the newly generated publication files rather than stale predecessors.
+`P01`--`P05` regenerate exactly the seven tables and seven figures imported by `article/article.tex`. They run before Step 12 so the consolidated artifact manifest records the newly generated publication files rather than stale predecessors.
 
 Sections 7 and 9 will be skipped with a recorded reason if annual comparability is not established. Section 8 will still calculate concentration statistics if JSD is ineligible. Section 15 itself will write:
 
